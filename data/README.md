@@ -36,3 +36,7 @@ Edit it, commit, push. Pages redeploys in ~1 min. The page reads it live (no bui
 ## Deploy gotcha (seen 10/22)
 GitHub Pages (legacy build) did NOT auto-build after `git push`. After every push run:
 `gh api -X POST repos/davidlaniado/eb-4f9q2/pages/builds` then poll `https://davidlaniado.github.io/eb-4f9q2/data/jobs.json?t=<random>` until the `updated` stamp matches. ~70s.
+
+## READ THREADS (David 10/22: "I replied to it directly, you're not seeing those")
+David answers in Slack THREADS. A channel/DM read without threads shows his questions as unanswered.
+Every sweep: read in `detailed` mode, and for every message with "Thread: N replies" read the thread before deciding the ball.

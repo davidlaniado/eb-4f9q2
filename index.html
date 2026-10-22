@@ -11,7 +11,7 @@
 <title>Editor Board</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* One phone-width column. Order: stats, YOUR MOVE (most late first), filters, one card per editor. */
+/* One phone-width column. Order: stats, filters, one card per EDITOR (most urgent first), jobs nested inside each card (your move first). */
 :root{
   --bg:#f3f4f1; --card:#ffffff; --fg:#161a1d; --muted:#5f6871; --line:#dde1dc;
   --accent:#0f4c5c; --accent-soft:#dcecef;
@@ -62,14 +62,7 @@ header h1{font-size:24px;margin:0;letter-spacing:-.01em}
 .stat.late{border-color:var(--late)}
 h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 8px;font-weight:600;display:flex;justify-content:space-between;align-items:baseline}
 h2 small{font-weight:400;letter-spacing:0;text-transform:none}
-.owe{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--you);border-radius:10px;padding:2px 14px}
-.owe .row{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:10px 0;border-top:1px solid var(--line);color:inherit;align-items:baseline;cursor:pointer}
-.owe .row:first-child{border-top:0}
-.owe .badge{grid-row:1 / span 2;align-self:start;margin-top:2px}
-.owe .who{font-weight:700;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;min-width:0}
-.owe .who .t{font-weight:500;color:var(--muted)}
-.owe .need{color:var(--fg);font-size:14px;min-width:0;overflow-wrap:anywhere}
-.owe .empty{padding:12px 0;color:var(--muted)}
+.badge{grid-row:1 / span 2;align-self:start;margin-top:2px}
 .badge{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:6px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .badge.late{background:var(--late);color:var(--late-ink)}
 .badge.soon{background:var(--soon-soft);color:var(--soon);border:1px solid var(--soon)}
@@ -89,6 +82,10 @@ h2 small{font-weight:400;letter-spacing:0;text-transform:none}
 .tag{font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border-radius:5px;background:var(--off-soft);color:var(--muted)}
 .tag.manual{background:var(--soon-soft);color:var(--soon)}
 .tag.hf{background:var(--accent-soft);color:var(--accent)}
+.tag.you{background:var(--you-soft);color:var(--you)}
+.tag.late{background:var(--late);color:var(--late-ink)}
+.tag.soon{background:var(--soon-soft);color:var(--soon);border:1px solid var(--soon)}
+.card .meta:empty{display:none}
 .card .rate{font-family:var(--mono);font-size:12px;color:var(--fg);background:var(--off-soft);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:0 0 auto;max-width:46%;text-align:right;white-space:normal}
 .job{border-top:1px solid var(--line);padding:10px 14px;display:flex;flex-direction:column;gap:5px}
 .job.late{box-shadow:inset 4px 0 0 var(--late)}
@@ -122,11 +119,6 @@ h2 small{font-weight:400;letter-spacing:0;text-transform:none}
   </header>
 
   <div class="stats" id="stats"></div>
-
-  <section>
-    <h2>Your move <small id="owe-sub"></small></h2>
-    <div class="owe" id="owe"></div>
-  </section>
 
   <section>
     <div class="filters" id="ballf" role="group" aria-label="Whose move"></div>
@@ -196,18 +188,6 @@ function render(){
     <div class="stat them"><b>${n('them')}</b><span>their move</span></div>
     <div class="stat live"><b>${n('live')}</b><span>live</span></div>`;
 
-  // your move list
-  const owe = jobs.filter(j=>j.ball==='you').sort((a,b)=>urg(b)-urg(a));
-  const oweEl = document.getElementById('owe');
-  document.getElementById('owe-sub').textContent = owe.length ? `${owe.length} open` : '';
-  oweEl.innerHTML = owe.length ? owe.map(j=>{
-    const d = infos[j.id];
-    return `<div class="row" data-go="ed-${j.editor}" role="link" tabindex="0">
-      <span class="badge ${d.cls||'ok'}">${d.label||'open'}</span>
-      <span class="who">${esc(byEd[j.editor]?.name||j.editor)} <span class="brand">${esc(j.brand)}</span> <span class="t">${esc(j.title)}</span></span>
-      <span class="need">${j.need||''}</span></div>`;
-  }).join('') : `<div class="empty">Nothing on you. Go make ads.</div>`;
-
   // filters
   const brands = [...new Set(jobs.map(j=>j.brand))].sort();
   document.getElementById('ballf').innerHTML = ['all',...BALL_ORDER].map(k=>
@@ -220,13 +200,17 @@ function render(){
   const cards = [...eds].sort((a,b)=>edScore(b)-edScore(a)).map(e=>{
     const js = jobs.filter(j=>j.editor===e.id && (ball==='all'||j.ball===ball) && (brand==='all'||j.brand===brand)).sort((a,b)=>urg(b)-urg(a));
     if(!js.length) return '';
-    const hasLate = js.some(j=>infos[j.id].cls==='late');
+    const allJs = jobs.filter(j=>j.editor===e.id);
+    const youN = allJs.filter(j=>j.ball==='you').length, lateN = allJs.filter(j=>infos[j.id].cls==='late').length, soonN = allJs.filter(j=>infos[j.id].cls==='soon').length;
+    const hasLate = lateN>0;
+    const counts = (lateN?`<span class="tag late">${lateN} late</span>`:'') + (soonN?`<span class="tag soon">${soonN} due soon</span>`:'') + (youN?`<span class="tag you">${youN} on you</span>`:'');
     const hf = e.higgsfield===true ? `<span class="tag hf">Higgsfield</span>` : (typeof e.higgsfield==='string' ? `<span class="tag hf">Higgsfield: ${esc(e.higgsfield)}</span>` : '');
     const src = e.source==='auto' ? `<span class="tag">auto</span>` : `<span class="tag manual">manual</span>`;
     return `<section class="card${hasLate?' has-late':''}" id="ed-${e.id}">
       <div class="top">
         <div style="min-width:0">
           <div class="name">${esc(e.name)} ${e.rating&&e.rating!=='n/a'?`<span class="rating">${esc(e.rating)}${e.rating_by==='David'?'':' ?'}</span>`:''}</div>
+          <div class="meta">${counts}</div>
           <div class="meta"><span>${esc(e.where)}</span>${src}${hf}</div>
         </div>
         <div class="rate">${esc(e.rate)}</div>
@@ -248,7 +232,6 @@ function render(){
 document.getElementById('ballf').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; ball=b.dataset.ball; render(); });
 document.getElementById('brandf').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; brand=b.dataset.brand; render(); });
 document.getElementById('stamp').addEventListener('click', ()=>location.reload());
-document.getElementById('owe').addEventListener('click', e=>{ if(e.target.closest('a')) return; const r=e.target.closest('.row'); if(!r) return; document.getElementById(r.dataset.go)?.scrollIntoView({behavior:'smooth',block:'start'}); });
 
 fetch('data/jobs.json?t='+Date.now(), {cache:'no-store'})
   .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
