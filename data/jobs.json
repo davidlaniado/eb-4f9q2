@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T15:45:04-04:00",
+ "updated": "2026-10-22T15:50:23-04:00",
  "updated_by": "manual (session)",
  "rules": {
   "default_due_days": 5,
@@ -184,10 +184,10 @@
    "title": "Zyvo Health app: 3 unique videos made",
    "started": "2026-10-16",
    "due": "2026-10-27",
-   "ball": "them",
+   "ball": "done",
    "follow_up": "2026-10-27",
    "need": "Nothing. David 10/22: not chasing Zyvo, no Bruce follow-up. If BC sends the 3 videos, pass them to Bruce.",
-   "status": "Audience answer sent 10/22 (55+). Product questions dropped.",
+   "status": "Audience answer sent 10/22 (55+). Product questions dropped. Removed from the board 10/22 (David).",
    "due_src": "default",
    "line": "3 Zyvo videos"
   },
@@ -385,10 +385,10 @@
    "title": "Zyvo app answers (from Bruce) for Theo",
    "started": "2026-10-22",
    "due": null,
-   "ball": "you",
+   "ball": "done",
    "follow_up": "2026-10-23",
    "need": "Get Bruce's answers (what's free, mark-as-taken, trusted-contact alerts, store page + iOS link) and pass them to Theo.",
-   "status": "You told Theo 10/22 you'd get these from Bruce, he owns the app.",
+   "status": "You told Theo 10/22 you'd get these from Bruce, he owns the app. Removed from the board 10/22 (David).",
    "line": "Zyvo app answers from Bruce, send to Theo"
   },
   {
