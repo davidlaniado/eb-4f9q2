@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T15:31:30-04:00",
+ "updated": "2026-10-22T15:45:04-04:00",
  "updated_by": "manual (session)",
  "rules": {
   "default_due_days": 5,
@@ -134,7 +134,8 @@
    "ball": "live",
    "follow_up": null,
    "need": "",
-   "status": "<b>LIVE 10/22 3:00pm</b> as ad set NX BC 50TRAP SONG STORY <code>120252050369720675</code>, $250/day, camp <code>120251918563870675</code>. You launched it yourself. Watchdog kill rule $250 / 0 sales. Tell Theo how it does."
+   "status": "<b>LIVE 10/22 3:00pm</b> as ad set NX BC 50TRAP SONG STORY <code>120252050369720675</code>, $250/day, camp <code>120251918563870675</code>. You launched it yourself. Watchdog kill rule $250 / 0 sales. Tell Theo how it does.",
+   "line": "Song story, live 10/22"
   },
   {
    "id": "bc-nuestra-56-review",
@@ -146,7 +147,8 @@
    "ball": "live",
    "follow_up": null,
    "need": "",
-   "status": "<b>LIVE 10/22 2:40pm</b> as ad set NX BC 50TRAP PIXAR UGC SISTERS <code>120252049357420675</code>, $250/day, same campaign. The other 4 formats stay paused ($1,465 / 2 sales)."
+   "status": "<b>LIVE 10/22 2:40pm</b> as ad set NX BC 50TRAP PIXAR UGC SISTERS <code>120252049357420675</code>, $250/day, same campaign. The other 4 formats stay paused ($1,465 / 2 sales).",
+   "line": "Pixar UGC sisters, live 10/22"
   },
   {
    "id": "bc-dmax-pixar-ugc",
@@ -158,7 +160,8 @@
    "ball": "you",
    "follow_up": "2026-10-23",
    "need": "Launch DirectMax Pixar & UGC <a href=\"https://f.io/Lqfbz34l\">f.io/Lqfbz34l</a> (approved 10/22 2:39pm).",
-   "status": "Delivered 10/19, approved 10/22 2:39pm. <b>Not on JSM-148 yet</b> as of 3:35pm (no new campaign or ad set today). Own campaign, Marcy page, watchdog picks it up via the account ladder."
+   "status": "Delivered 10/19, approved 10/22 2:39pm. <b>Not on JSM-148 yet</b> as of 3:35pm (no new campaign or ad set today). Own campaign, Marcy page, watchdog picks it up via the account ladder.",
+   "line": "Launch DirectMax Pixar & UGC"
   },
   {
    "id": "bc-ed-drama",
@@ -171,7 +174,8 @@
    "follow_up": "2026-10-24",
    "need": "",
    "status": "You 10/22 3:06pm: \"Keep going on the ED drama, that's the job right now. Lmk the ETA.\" Sent Max's Pixar cuts as a tone reference. Waiting on their ETA.",
-   "due_src": ""
+   "due_src": "",
+   "line": "ED drama videos, need an ETA"
   },
   {
    "id": "bc-zyvo",
@@ -182,9 +186,10 @@
    "due": "2026-10-27",
    "ball": "them",
    "follow_up": "2026-10-27",
-   "need": "",
-   "status": "You answered 10/22 2:32pm (thread): audience 55+, daily-meds jugglers first, skip the ADHD lane. Ambulance + Almost Forgot fit, Every Hack needs her late 50s. Asked them to send the 3 videos. Their 4 app questions go to Bruce.",
-   "due_src": "default"
+   "need": "Nothing. David 10/22: not chasing Zyvo, no Bruce follow-up. If BC sends the 3 videos, pass them to Bruce.",
+   "status": "Audience answer sent 10/22 (55+). Product questions dropped.",
+   "due_src": "default",
+   "line": "3 Zyvo videos"
   },
   {
    "id": "bc-new-briefs",
@@ -196,7 +201,8 @@
    "ball": "done",
    "follow_up": null,
    "need": "",
-   "status": "Answered 10/22 3:06pm: the ED drama videos are the job. Closed."
+   "status": "Answered 10/22 3:06pm: the ED drama videos are the job. Closed.",
+   "line": "New briefs (closed)"
   },
   {
    "id": "bc-two-wires",
@@ -209,7 +215,8 @@
    "ball": "them",
    "follow_up": "2026-10-13",
    "need": "Write + send the Two Wires (and Shelf of Shame) format-breakout briefs, 4-6 formats each. The 10/8 message only explained the rule.",
-   "status": "Briefs promised 10/8 (\"separate briefs coming\"), never sent. Not a BC delivery."
+   "status": "Briefs promised 10/8 (\"separate briefs coming\"), never sent. Not a BC delivery.",
+   "line": "Two Wires breakout, nothing yet"
   },
   {
    "id": "max-pixar-song",
@@ -222,7 +229,8 @@
    "follow_up": "2026-10-25",
    "need": "",
    "status": "v3.2 118s <b>LIVE 10/21 7pm</b>, camp <code>120258613919950212</code>. Day 1: $96 / 2 sales / $48 CPA, hold 22%, best he has posted. v4.2 Brain Control Room 112s launched 10/22 in its own ad set, in review. You 10/22 1:55pm: keep going on the 90s and 120s, do not change song or story. Disney copyright: you said \"Nehhh\" (thread 10/21).",
-   "due_src": "default"
+   "due_src": "default",
+   "line": "90s + 120s Pixar cuts"
   },
   {
    "id": "max-flirting-hap",
@@ -234,7 +242,8 @@
    "ball": "live",
    "follow_up": null,
    "need": "",
-   "status": "<b>LIVE 10/16</b> ABO <code>120258478314670212</code>, 11 x $50, Marcy page. Day 4: $2,068 / 5 sales / $414 CPA, 8 of 11 paused. HAP A2 v1 = winner candidate ($130 CPA). Day-4 report staged in his DM, you said leave it."
+   "status": "<b>LIVE 10/16</b> ABO <code>120258478314670212</code>, 11 x $50, Marcy page. Day 4: $2,068 / 5 sales / $414 CPA, 8 of 11 paused. HAP A2 v1 = winner candidate ($130 CPA). Day-4 report staged in his DM, you said leave it.",
+   "line": "Flirting + Half-a-Pill, live 10/16"
   },
   {
    "id": "yat-5-videos",
@@ -247,7 +256,8 @@
    "ball": "them",
    "follow_up": "2026-10-24",
    "need": "",
-   "status": "Higgsfield fight ended 10/22: he runs it on his own account and bills you. Promised the first hook cut \"in a day or two\" (10/21). Ask = one hook cut of Bedroom POV first."
+   "status": "Higgsfield fight ended 10/22: he runs it on his own account and bills you. Promised the first hook cut \"in a day or two\" (10/21). Ask = one hook cut of Bedroom POV first.",
+   "line": "First hook cut, Bedroom POV"
   },
   {
    "id": "yat-sample",
@@ -259,7 +269,8 @@
    "ball": "live",
    "follow_up": null,
    "need": "",
-   "status": "Rejected twice on JSM-148. NoViagra blur cut <b>live on Nitido since 10/14</b>, camp <code>120261747096770586</code>, $250/day."
+   "status": "Rejected twice on JSM-148. NoViagra blur cut <b>live on Nitido since 10/14</b>, camp <code>120261747096770586</code>, $250/day.",
+   "line": "NoViagra blur cut, live 10/14"
   },
   {
    "id": "jawad-syra-4",
@@ -272,7 +283,8 @@
    "ball": "them",
    "follow_up": "2026-10-24",
    "need": "",
-   "status": "Milestone 2 funded 10/20 ($400). Video 1 hook 1 came 10/21 as a 7s raw clip, single hook, no captions. <b>Feedback sent 10/22 1:49pm</b>: double hook per the visual plan + the full 58s cut. Waiting on full video 1. 5th concept still open."
+   "status": "Milestone 2 funded 10/20 ($400). Video 1 hook 1 came 10/21 as a 7s raw clip, single hook, no captions. <b>Feedback sent 10/22 1:49pm</b>: double hook per the visual plan + the full 58s cut. Waiting on full video 1. 5th concept still open.",
+   "line": "Full video 1 with the double hook"
   },
   {
    "id": "jawad-sample",
@@ -284,7 +296,8 @@
    "ball": "live",
    "follow_up": null,
    "need": "",
-   "status": "$100 paid. Live since 10/13, camp <code>120258396274870212</code>."
+   "status": "$100 paid. Live since 10/13, camp <code>120258396274870212</code>.",
+   "line": "Sample 1, live 10/13"
   },
   {
    "id": "mujeeb-round2",
@@ -297,7 +310,8 @@
    "ball": "them",
    "follow_up": "2026-10-25",
    "need": "",
-   "status": "Song + character images + 30s scene images on Frame.io 10/21. You: \"make the video and I'll lyk.\" Building the full Pixar now, no ETA. Street interview after. Round-1 cuts never launched."
+   "status": "Song + character images + 30s scene images on Frame.io 10/21. You: \"make the video and I'll lyk.\" Building the full Pixar now, no ETA. Street interview after. Round-1 cuts never launched.",
+   "line": "Pixar song, full cut"
   },
   {
    "id": "ryz-5-new",
@@ -309,7 +323,8 @@
    "ball": "you",
    "follow_up": "2026-10-22",
    "need": "Send her the 5 new video briefs (you said \"by tomorrow\" on 10/21). Tell finance to pay the $220 invoice (you said 10/22).",
-   "status": "Her 5 SAL H3 cuts are approved and in hand. You asked her 10/22 1:52pm to move to Slack, no answer yet (Telegram quiet since)."
+   "status": "Her 5 SAL H3 cuts are approved and in hand. You asked her 10/22 1:52pm to move to Slack, no answer yet (Telegram quiet since).",
+   "line": "Send her 5 briefs + pay $220 invoice"
   },
   {
    "id": "ryz-sal-h3-launch",
@@ -321,7 +336,8 @@
    "ball": "you",
    "follow_up": "2026-10-21",
    "need": "Launch the 5 approved cuts (you 10/20: \"I just need to launch her videos\"). Say the word and the robot builds it.",
-   "status": "Cuts in hand since 10/15-10/19. One-room one-routine rule applied."
+   "status": "Cuts in hand since 10/15-10/19. One-room one-routine rule applied.",
+   "line": "Launch her 5 cuts"
   },
   {
    "id": "ryz-dmsp-walking",
@@ -333,7 +349,8 @@
    "ball": "off",
    "follow_up": null,
    "need": "",
-   "status": "Built paused on Nuestra <code>120251880414120675</code>, $250/day. Your call to flip."
+   "status": "Built paused on Nuestra <code>120251880414120675</code>, $250/day. Your call to flip.",
+   "line": "DMSP walking-woman, paused"
   },
   {
    "id": "mahesh-next",
@@ -345,7 +362,8 @@
    "ball": "you",
    "follow_up": "2026-10-24",
    "need": "Pick his next job and brief him in Slack (he joined 10/22 12:47pm). You promised \"this week\".",
-   "status": "$50 milestone approved 10/20. Shelf of Shame remake ran as MAH <code>120258396307030212</code>: $345 / 1 sale / 8 checkouts. In OnPoint Slack now, pay stays on Upwork."
+   "status": "$50 milestone approved 10/20. Shelf of Shame remake ran as MAH <code>120258396307030212</code>: $345 / 1 sale / 8 checkouts. In OnPoint Slack now, pay stays on Upwork.",
+   "line": "Pick his next job"
   },
   {
    "id": "cattory-batch2",
@@ -357,7 +375,8 @@
    "ball": "live",
    "follow_up": null,
    "need": "",
-   "status": "124 files 10/15. 4 cuts <b>live</b>, camp <code>120251920803930675</code>. New $50-trap videos go in their own campaign."
+   "status": "124 files 10/15. 4 cuts <b>live</b>, camp <code>120251920803930675</code>. New $50-trap videos go in their own campaign.",
+   "line": "Batch 2 cuts, live 10/15"
   },
   {
    "id": "bc-zyvo-app-answers",
@@ -369,7 +388,22 @@
    "ball": "you",
    "follow_up": "2026-10-23",
    "need": "Get Bruce's answers (what's free, mark-as-taken, trusted-contact alerts, store page + iOS link) and pass them to Theo.",
-   "status": "You told Theo 10/22 you'd get these from Bruce, he owns the app."
+   "status": "You told Theo 10/22 you'd get these from Bruce, he owns the app.",
+   "line": "Zyvo app answers from Bruce, send to Theo"
+  },
+  {
+   "id": "ryz-slack-move",
+   "editor": "ryz",
+   "brand": "—",
+   "title": "Move to Slack",
+   "line": "Answer on moving to Slack",
+   "started": "2026-10-22",
+   "due": "2026-10-23",
+   "due_src": "default",
+   "ball": "them",
+   "follow_up": "2026-10-23",
+   "need": "",
+   "status": "You asked her 10/22 1:52pm on Telegram. No answer yet."
   }
  ]
 }

@@ -43,3 +43,7 @@ Every sweep: read in `detailed` mode, and for every message with "Thread: N repl
 
 ## `ball: done`
 Closed items keep their row (history) but the page hides them. Use it when a question got answered or a job was launched and nothing is owed either way.
+
+## `line` (added 10/22, David: "something quick so I know what needs to be done")
+Every job has a `line`: the whole item in 8 words or fewer. ball=you → imperative ("Launch her 5 cuts"). ball=them → what they owe ("First hook cut"). live → "<thing>, live <date>".
+The page shows ONLY the line + a late/due badge. `need` and `status` show when the line is tapped. No brand pills on the page.

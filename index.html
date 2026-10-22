@@ -5,140 +5,99 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#121517" media="(prefers-color-scheme: dark)">
 <title>Editor Board</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Board = one column per EDITOR, left to right, most urgent first. Inside each column: YOU (what David owes), THEM (what they owe), then live/paused. Horizontal swipe on phone, scroll on desktop. */
+/* One column per editor, left to right, worst first. Each job = one short line + a late/due badge. Tap a line for the detail. */
 :root{
   --bg:#f3f4f1; --card:#ffffff; --fg:#161a1d; --muted:#5f6871; --line:#dde1dc;
-  --accent:#0f4c5c; --accent-soft:#dcecef;
+  --accent:#0f4c5c;
   --you:#b3261e; --you-soft:#fbe4e1;
   --them:#8a5a00; --them-soft:#fdf0d2;
   --live:#1d6b3a; --live-soft:#dcefdf;
   --off:#6b7280; --off-soft:#e8eaed;
   --late:#b3261e; --late-ink:#fff;
-  --soon:#8a5a00; --soon-soft:#fdf0d2;
-  --colw:320px;
+  --colw:300px;
   --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#121517; --card:#1b1f23; --fg:#eceef0; --muted:#9aa3ab; --line:#2b3136;
-  --accent:#7fc4d2; --accent-soft:#13343c;
+  --accent:#7fc4d2;
   --you:#ff8a80; --you-soft:#4a1c19;
   --them:#f0c060; --them-soft:#3f2f0c;
   --live:#7fd49a; --live-soft:#153821;
   --off:#a0a7ae; --off-soft:#2a2f34;
-  --late:#ff6b60; --late-ink:#1b0a09;
-  --soon:#f0c060; --soon-soft:#3f2f0c; color-scheme:dark}}
+  --late:#ff6b60; --late-ink:#1b0a09; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121517; --card:#1b1f23; --fg:#eceef0; --muted:#9aa3ab; --line:#2b3136;
-  --accent:#7fc4d2; --accent-soft:#13343c;
+  --accent:#7fc4d2;
   --you:#ff8a80; --you-soft:#4a1c19;
   --them:#f0c060; --them-soft:#3f2f0c;
   --live:#7fd49a; --live-soft:#153821;
   --off:#a0a7ae; --off-soft:#2a2f34;
-  --late:#ff6b60; --late-ink:#1b0a09;
-  --soon:#f0c060; --soon-soft:#3f2f0c; color-scheme:dark}
+  --late:#ff6b60; --late-ink:#1b0a09; color-scheme:dark}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.45;
-  padding-top:max(20px,env(safe-area-inset-top,0px));padding-bottom:48px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.4;
+  padding-top:max(18px,env(safe-area-inset-top,0px));padding-bottom:40px}
 a{color:var(--accent)}
 .pad{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.wrap{display:flex;flex-direction:column;gap:16px}
-header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
-header h1{font-size:24px;margin:0;letter-spacing:-.01em}
-.stamp{font:inherit;font-size:12.5px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 10px;cursor:pointer}
-.stamp.stale{border-color:var(--soon);color:var(--soon)}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+header h1{font-size:20px;margin:0;letter-spacing:-.01em}
+.sum{font-size:13px;color:var(--muted)}
+.sum b{color:var(--you);font-weight:700}
+.sum b.l{color:var(--late)}
+.stamp{font:inherit;font-size:12px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:4px 9px;cursor:pointer}
+.stamp.stale{border-color:var(--them);color:var(--them)}
 .stamp.old{border-color:var(--late);color:var(--late)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:720px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center}
-.stat b{display:block;font-size:22px;font-variant-numeric:tabular-nums;line-height:1.1}
-.stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.stat.you b{color:var(--you)} .stat.late b{color:var(--late)} .stat.them b{color:var(--them)} .stat.live b{color:var(--live)}
-.stat.late{border-color:var(--late)}
-.filters{display:flex;gap:6px;flex-wrap:wrap}
-.filters button{font:inherit;font-size:12.5px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;white-space:nowrap}
-.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-.filters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.filters button .n{font-weight:700;color:var(--late)}
-.filters button[aria-pressed="true"] .n{color:#fff}
-.edchips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
-.edchips::-webkit-scrollbar{display:none}
-.board{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-bottom:10px;align-items:flex-start}
-.col{flex:0 0 var(--colw);width:var(--colw);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;scroll-margin-left:16px}
+.board{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;align-items:flex-start;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-bottom:10px}
+.col{flex:0 0 var(--colw);width:var(--colw);scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .col.has-late{border-color:var(--late)}
-.colhead{padding:12px 14px 10px;border-bottom:1px solid var(--line)}
-.colhead .name{font-weight:700;font-size:17px;line-height:1.2;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
-.colhead .rating{font-size:12px;font-weight:600;color:var(--muted);font-family:var(--mono)}
-.colhead .meta{font-size:12px;color:var(--muted);margin-top:4px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
-.colhead .meta:empty{display:none}
-.colhead .rate{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:4px}
-.tag{font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border-radius:5px;background:var(--off-soft);color:var(--muted);white-space:nowrap}
-.tag.manual{background:var(--soon-soft);color:var(--soon)}
-.tag.hf{background:var(--accent-soft);color:var(--accent)}
-.tag.you{background:var(--you-soft);color:var(--you)}
-.tag.late{background:var(--late);color:var(--late-ink)}
-.tag.soon{background:var(--soon-soft);color:var(--soon);border:1px solid var(--soon)}
-.grp{border-top:1px solid var(--line)}
-.grp:first-of-type{border-top:0}
-.grp h3{margin:0;padding:8px 14px 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted)}
-.grp.you h3{color:var(--you)} .grp.them h3{color:var(--them)} .grp.live h3{color:var(--live)}
-.item{padding:6px 14px 10px;display:flex;flex-direction:column;gap:5px}
-.item+.item{border-top:1px dashed var(--line);padding-top:10px}
-.grp.you .item{box-shadow:inset 3px 0 0 var(--you)}
-.item.late{box-shadow:inset 3px 0 0 var(--late) !important}
-.item.soon{box-shadow:inset 3px 0 0 var(--soon) !important}
-.item .l1{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.item .title{font-weight:600;font-size:14px;min-width:0;overflow-wrap:anywhere;line-height:1.3}
-.item .l2{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.item .day{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.badge{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:6px;white-space:nowrap;font-variant-numeric:tabular-nums}
-.badge.late{background:var(--late);color:var(--late-ink)}
-.badge.soon{background:var(--soon-soft);color:var(--soon);border:1px solid var(--soon)}
-.badge.ok{background:var(--off-soft);color:var(--muted)}
-.brand{font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
-.item .need{font-size:13.5px;color:var(--fg);background:var(--you-soft);border-radius:8px;padding:6px 9px;overflow-wrap:anywhere;line-height:1.4}
-.item .need::before{content:"Do: ";font-weight:700;color:var(--you)}
-.item .status{color:var(--muted);font-size:12.5px;overflow-wrap:anywhere;line-height:1.4}
-.item .status b{color:var(--fg);font-weight:600}
-.item .status code,.item .need code{font-family:var(--mono);font-size:11px;background:var(--off-soft);padding:1px 4px;border-radius:4px;word-break:break-all}
-.grp.live .item{padding:5px 14px 8px}
-.grp.live .status{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.grp.live .item.open .status{display:block}
-.pill{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;white-space:nowrap}
-.pill.live{background:var(--live-soft);color:var(--live)} .pill.off{background:var(--off-soft);color:var(--off)}
-.empty{padding:6px 14px 10px;color:var(--muted);font-size:13px}
-.foot{color:var(--muted);font-size:12.5px;max-width:720px}
-.foot p{margin:4px 0}
+.colhead{padding:10px 12px 8px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.colhead .name{font-weight:700;font-size:16px;line-height:1.2}
+.colhead .late{font-size:11px;font-weight:700;color:var(--late-ink);background:var(--late);padding:2px 7px;border-radius:6px;white-space:nowrap}
+.grp h3{margin:0;padding:8px 12px 2px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted);display:flex;justify-content:space-between;align-items:center;cursor:default}
+.grp.you h3{color:var(--you)} .grp.them h3{color:var(--them)} .grp.live h3{color:var(--live);cursor:pointer}
+.grp.live h3::after{content:"▸";font-size:12px} .grp.live.open h3::after{content:"▾"}
+.grp.live .rows{display:none} .grp.live.open .rows{display:block}
+.grp+.grp{border-top:1px solid var(--line)}
+.row{padding:7px 12px 8px;cursor:pointer}
+.row+.row{border-top:1px dashed var(--line)}
+.row .l{display:flex;gap:8px;align-items:flex-start}
+.row .dot{flex:0 0 8px;width:8px;height:8px;border-radius:50%;margin-top:7px;background:var(--off)}
+.grp.you .row .dot{background:var(--you)} .grp.them .row .dot{background:var(--them)} .grp.live .row .dot{background:var(--live)}
+.row.off .dot{background:var(--off)}
+.row .txt{flex:1;min-width:0;font-weight:500;overflow-wrap:anywhere;line-height:1.35}
+.grp.you .row .txt{font-weight:600}
+.row .b{flex:0 0 auto;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;white-space:nowrap;margin-top:1px;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.b.late{background:var(--late);color:var(--late-ink)}
+.b.soon{background:var(--them-soft);color:var(--them);border:1px solid var(--them)}
+.b.ok{background:var(--off-soft);color:var(--muted)}
+.row .more{display:none;margin:6px 0 0 16px;font-size:13px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere}
+.row.open .more{display:block}
+.row .more .need{color:var(--fg);background:var(--you-soft);border-radius:7px;padding:6px 8px;margin-bottom:5px}
+.row .more b{color:var(--fg)}
+.row .more code{font-family:var(--mono);font-size:11px;background:var(--off-soft);padding:1px 4px;border-radius:4px;word-break:break-all}
+.row .more .meta{font-size:11.5px;margin-top:4px;font-family:var(--mono)}
+.empty{padding:4px 12px 8px;color:var(--muted);font-size:13px}
+.foot{color:var(--muted);font-size:12px;margin-top:6px}
+.foot p{margin:3px 0}
 .err{background:var(--you-soft);color:var(--you);padding:12px 14px;border-radius:10px}
-@media (max-width:600px){:root{--colw:min(86vw,340px)} .stat b{font-size:20px} .stat span{font-size:10px}}
+@media (max-width:600px){:root{--colw:min(84vw,330px)}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="pad">
-    <div><h1>Editor Board</h1></div>
-    <button class="stamp" id="stamp" title="Tap to reload">loading…</button>
-  </header>
-
-  <div class="stats pad" id="stats"></div>
-
-  <div class="pad"><div class="filters" id="brandf" role="group" aria-label="Brand"></div></div>
-  <div class="pad"><div class="filters edchips" id="edchips" role="group" aria-label="Jump to editor"></div></div>
-
-  <div class="board" id="board"></div>
-
-  <div class="foot pad">
-    <p><b>Swipe sideways</b> for the next editor. Tap a name above to jump. Columns are ordered worst first.</p>
-    <p><b>Red</b> = late. <b>Amber</b> = due today or tomorrow. Day counter = days since the brief or delivery. Tap a live item to read the full note.</p>
-    <p><b>Auto</b> editors update from Slack on the robot's schedule. <b>Manual</b> ones update when David and the robot are in session.</p>
-  </div>
+<header class="pad">
+  <div><h1>Editor Board</h1><div class="sum" id="sum"></div></div>
+  <button class="stamp" id="stamp" title="Tap to reload">loading…</button>
+</header>
+<div class="board" id="board"></div>
+<div class="foot pad">
+  <p>Swipe sideways for the next editor. Tap a line for the detail. Red = late.</p>
 </div>
 
 <script>
@@ -153,93 +112,61 @@ function dueInfo(j){
   const ref = j.ball==='you' ? j.follow_up : (j.ball==='them' ? j.due : null);
   if(!ref) return {cls:'', label:'', n:null};
   const n = dd(pd(ref), today);
-  if(n<0)  return {cls:'late', label:`${-n} day${n===-1?'':'s'} late`, n};
-  if(n===0) return {cls:'soon', label:'due today', n};
-  if(n===1) return {cls:'soon', label:'due tomorrow', n};
-  return {cls:'ok', label:`due ${fmtD(pd(ref))}`, n};
+  if(n<0)  return {cls:'late', label:`${-n}d late`, n};
+  if(n===0) return {cls:'soon', label:'today', n};
+  if(n===1) return {cls:'soon', label:'tomorrow', n};
+  return {cls:'ok', label:fmtD(pd(ref)), n};
 }
-function dayN(j){ if(!j.started) return ''; return `day ${dd(today, pd(j.started))+1}`; }
 function urg(j){
   const d = dueInfo(j);
   if(d.cls==='late') return 100 + (-d.n) + (j.ball==='you'?50:0);
   if(d.cls==='soon') return 60 + (j.ball==='you'?10:0) - d.n;
   return {you:40, them:30, live:20, off:10}[j.ball] || 0;
 }
-
-let DATA=null, brand='all';
-
+let DATA=null;
 function stampText(){
   const u = new Date(DATA.updated);
   const mins = Math.round((Date.now()-u)/60000);
   const ago = mins<60 ? `${mins}m ago` : mins<2880 ? `${Math.round(mins/60)}h ago` : `${Math.round(mins/1440)}d ago`;
-  const t = u.toLocaleString('en-US',{month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit'});
   const el = document.getElementById('stamp');
-  el.textContent = `Updated ${t} · ${ago}`;
+  el.textContent = `Updated ${ago}`;
+  el.title = u.toLocaleString();
   el.className = 'stamp' + (mins>1440 ? ' old' : mins>240 ? ' stale' : '');
 }
-
-function itemHTML(j, info){
-  const l2 = `<div class="l2">${info.label?`<span class="badge ${info.cls}">${info.label}</span>`:''}${j.ball==='live'?'<span class="pill live">Live</span>':''}${j.ball==='off'?'<span class="pill off">Paused</span>':''}${j.started?`<span class="day">${dayN(j)}</span>`:''}${j.due&&j.ball==='you'?`<span>due ${fmtD(pd(j.due))}</span>`:''}</div>`;
-  return `<div class="item ${info.cls}" data-id="${j.id}">
-    <div class="l1"><span class="brand">${esc(j.brand)}</span><span class="title">${esc(j.title)}</span></div>
-    ${l2}
-    ${j.ball==='you'&&j.need?`<div class="need">${j.need}</div>`:''}
-    ${j.status?`<div class="status">${j.status}</div>`:''}
+function rowHTML(j, info){
+  const day = j.started ? `day ${dd(today, pd(j.started))+1}` : '';
+  return `<div class="row${j.ball==='off'?' off':''}" data-id="${j.id}">
+    <div class="l"><span class="dot"></span><span class="txt">${esc(j.line||j.title)}</span>${info.label?`<span class="b ${info.cls}">${info.label}</span>`:''}</div>
+    <div class="more">${j.ball==='you'&&j.need?`<div class="need">${j.need}</div>`:''}${j.status?`<div>${j.status}</div>`:''}<div class="meta">${esc(j.title)}${day?` · ${day}`:''}${j.due&&j.ball!=='them'?` · due ${fmtD(pd(j.due))}`:''}</div></div>
   </div>`;
 }
-
 function render(){
   const jobs = DATA.jobs.filter(j=>j.ball!=='done'), eds = DATA.editors;
   const infos = Object.fromEntries(jobs.map(j=>[j.id, dueInfo(j)]));
-  const n = k=>jobs.filter(j=>j.ball===k).length;
-  const late = jobs.filter(j=>infos[j.id].cls==='late').length;
-  document.getElementById('stats').innerHTML = `
-    <div class="stat you"><b>${n('you')}</b><span>on you</span></div>
-    <div class="stat late"><b>${late}</b><span>late</span></div>
-    <div class="stat them"><b>${n('them')}</b><span>on them</span></div>
-    <div class="stat live"><b>${n('live')}</b><span>live</span></div>`;
-
-  const brands = [...new Set(jobs.map(j=>j.brand))].sort();
-  document.getElementById('brandf').innerHTML = ['all',...brands].map(b=>
-    `<button aria-pressed="${brand===b}" data-brand="${b}">${b==='all'?'All brands':esc(b)}</button>`).join('');
-
+  const youN = jobs.filter(j=>j.ball==='you').length, lateN = jobs.filter(j=>infos[j.id].cls==='late').length;
+  document.getElementById('sum').innerHTML = `<b>${youN} on you</b> · <b class="l">${lateN} late</b>`;
   const edScore = e=>Math.max(0,...jobs.filter(j=>j.editor===e.id).map(urg));
   const ordered = [...eds].sort((a,b)=>edScore(b)-edScore(a));
-
-  const cols = ordered.map(e=>{
-    const js = jobs.filter(j=>j.editor===e.id && (brand==='all'||j.brand===brand)).sort((a,b)=>urg(b)-urg(a));
+  document.getElementById('board').innerHTML = ordered.map(e=>{
+    const js = jobs.filter(j=>j.editor===e.id).sort((a,b)=>urg(b)-urg(a));
     if(!js.length) return '';
     const you = js.filter(j=>j.ball==='you'), them = js.filter(j=>j.ball==='them'), rest = js.filter(j=>j.ball==='live'||j.ball==='off');
-    const lateN = js.filter(j=>infos[j.id].cls==='late').length, soonN = js.filter(j=>infos[j.id].cls==='soon').length;
-    const counts = (lateN?`<span class="tag late">${lateN} late</span>`:'') + (soonN?`<span class="tag soon">${soonN} due soon</span>`:'') + (you.length?`<span class="tag you">${you.length} on you</span>`:'');
-    const hf = e.higgsfield===true ? `<span class="tag hf">Higgsfield</span>` : (typeof e.higgsfield==='string' ? `<span class="tag hf">Higgsfield: ${esc(e.higgsfield)}</span>` : '');
-    const src = e.source==='auto' ? `<span class="tag">auto</span>` : `<span class="tag manual">manual</span>`;
-    const grp = (cls, label, arr, emptyText)=> `<div class="grp ${cls}"><h3>${label}${arr.length?` · ${arr.length}`:''}</h3>${arr.length?arr.map(j=>itemHTML(j, infos[j.id])).join(''):`<div class="empty">${emptyText}</div>`}</div>`;
-    return `<section class="col${lateN?' has-late':''}" id="ed-${e.id}">
-      <div class="colhead">
-        <div class="name">${esc(e.name)} ${e.rating&&e.rating!=='n/a'?`<span class="rating">${esc(e.rating)}${e.rating_by==='David'?'':' ?'}</span>`:''}</div>
-        <div class="meta">${counts}</div>
-        <div class="meta"><span>${esc(e.where)}</span>${src}${hf}</div>
-        <div class="rate">${esc(e.rate)}</div>
-      </div>
-      ${grp('you','You', you, 'Nothing on you')}
-      ${grp('them','Them', them, 'Nothing owed')}
-      ${rest.length?grp('live','Live / paused', rest, ''):''}
+    const late = js.filter(j=>infos[j.id].cls==='late').length;
+    const rows = arr=>arr.map(j=>rowHTML(j, infos[j.id])).join('');
+    return `<section class="col${late?' has-late':''}" id="ed-${e.id}">
+      <div class="colhead"><div class="name">${esc(e.name)}</div>${late?`<span class="late">${late} late</span>`:''}</div>
+      <div class="grp you"><h3>You${you.length?` · ${you.length}`:''}</h3>${you.length?rows(you):'<div class="empty">nothing</div>'}</div>
+      <div class="grp them"><h3>Them${them.length?` · ${them.length}`:''}</h3>${them.length?rows(them):'<div class="empty">nothing</div>'}</div>
+      ${rest.length?`<div class="grp live"><h3>Live · ${rest.length}</h3><div class="rows">${rows(rest)}</div></div>`:''}
     </section>`;
   }).join('');
-  document.getElementById('board').innerHTML = cols || `<div class="foot pad">Nothing matches.</div>`;
-
-  document.getElementById('edchips').innerHTML = ordered.filter(e=>jobs.some(j=>j.editor===e.id && (brand==='all'||j.brand===brand))).map(e=>{
-    const l = jobs.filter(j=>j.editor===e.id && infos[j.id].cls==='late').length;
-    return `<button data-go="ed-${e.id}">${esc(e.name.split(' (')[0])}${l?` <span class="n">${l}</span>`:''}</button>`;
-  }).join('');
 }
-
-document.getElementById('brandf').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; brand=b.dataset.brand; render(); });
-document.getElementById('edchips').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; document.getElementById(b.dataset.go)?.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'}); });
-document.getElementById('board').addEventListener('click', e=>{ if(e.target.closest('a')) return; const it=e.target.closest('.grp.live .item'); if(it) it.classList.toggle('open'); });
+document.getElementById('board').addEventListener('click', e=>{
+  if(e.target.closest('a')) return;
+  const h = e.target.closest('.grp.live h3'); if(h){ h.parentElement.classList.toggle('open'); return; }
+  const r = e.target.closest('.row'); if(r) r.classList.toggle('open');
+});
 document.getElementById('stamp').addEventListener('click', ()=>location.reload());
-
 fetch('data/jobs.json?t='+Date.now(), {cache:'no-store'})
   .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
   .then(d=>{ DATA=d; stampText(); render(); setInterval(stampText, 60000); })
