@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T15:08:04-04:00",
+ "updated": "2026-10-22T15:31:30-04:00",
  "updated_by": "manual (session)",
  "rules": {
   "default_due_days": 5,
@@ -128,25 +128,25 @@
    "id": "bc-nuestra5-review",
    "editor": "bc",
    "brand": "Nuestra",
-   "title": "#5 song story: LAUNCH (approved)",
-   "started": "2026-10-19",
+   "title": "#5 song story",
+   "started": "2026-10-22",
    "due": null,
-   "ball": "you",
-   "follow_up": "2026-10-23",
-   "need": "Launch #5 song story in its own ad set (you told Theo 10/22: runs as is, own ad set, will share results).",
-   "status": "Approved 10/22 2:32pm in thread (\"good overall, she doesn't look like she lost much weight, running as is\"). Updated cut w/ Spanish music = <a href=\"https://f.io/3S2hJOAf\">f.io/3S2hJOAf</a>. The other 4 formats: TED $387/0, street $394/1, Pixar $372/1, comment reply $312/0 = $1,465 / 2 sales, all paused on the kill rule (your read to Theo 10/22 2:37pm)."
+   "ball": "live",
+   "follow_up": null,
+   "need": "",
+   "status": "<b>LIVE 10/22 3:00pm</b> as ad set NX BC 50TRAP SONG STORY <code>120252050369720675</code>, $250/day, camp <code>120251918563870675</code>. You launched it yourself. Watchdog kill rule $250 / 0 sales. Tell Theo how it does."
   },
   {
    "id": "bc-nuestra-56-review",
    "editor": "bc",
    "brand": "Nuestra",
-   "title": "#6 Pixar & UGC: LAUNCH (approved)",
-   "started": "2026-10-19",
+   "title": "#6 Pixar & UGC (sisters)",
+   "started": "2026-10-22",
    "due": null,
-   "ball": "you",
-   "follow_up": "2026-10-23",
-   "need": "Launch Nuestra #6 Pixar & UGC <a href=\"https://f.io/MjIFqUrQ\">f.io/MjIFqUrQ</a> (approved 10/22 2:39pm, \"getting them live\").",
-   "status": "Delivered 10/19. Approved in thread 10/22. Spanish storyline-then-real-person concept."
+   "ball": "live",
+   "follow_up": null,
+   "need": "",
+   "status": "<b>LIVE 10/22 2:40pm</b> as ad set NX BC 50TRAP PIXAR UGC SISTERS <code>120252049357420675</code>, $250/day, same campaign. The other 4 formats stay paused ($1,465 / 2 sales)."
   },
   {
    "id": "bc-dmax-pixar-ugc",
@@ -158,7 +158,7 @@
    "ball": "you",
    "follow_up": "2026-10-23",
    "need": "Launch DirectMax Pixar & UGC <a href=\"https://f.io/Lqfbz34l\">f.io/Lqfbz34l</a> (approved 10/22 2:39pm).",
-   "status": "Delivered 10/19. Approved in thread 10/22 with the two Nuestra cuts."
+   "status": "Delivered 10/19, approved 10/22 2:39pm. <b>Not on JSM-148 yet</b> as of 3:35pm (no new campaign or ad set today). Own campaign, Marcy page, watchdog picks it up via the account ladder."
   },
   {
    "id": "bc-ed-drama",
