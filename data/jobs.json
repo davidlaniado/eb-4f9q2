@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-22T16:20-04:00",
- "updated_by": "manual (session)",
+ "updated": "2026-10-22T17:39-04:00",
+ "updated_by": "claude",
  "rules": {
   "default_due_days": 5,
   "reply_due_hours": 24
@@ -355,15 +355,15 @@
   {
    "id": "mahesh-next",
    "editor": "mahesh",
-   "brand": "—",
-   "title": "Next job (you promised \"this week\")",
-   "started": "2026-10-20",
+   "brand": "DirectMax",
+   "title": "\"Guy Downstairs Speaking\" Pixar (Aurivita rework)",
+   "started": "2026-10-22",
    "due": null,
-   "ball": "you",
+   "ball": "them",
    "follow_up": "2026-10-24",
-   "need": "Pick his next job and brief him in Slack (he joined 10/22 12:47pm). You promised \"this week\".",
-   "status": "$50 milestone approved 10/20. Shelf of Shame remake ran as MAH <code>120258396307030212</code>: $345 / 1 sale / 8 checkouts. In OnPoint Slack now, pay stays on Upwork.",
-   "line": "Pick his next job"
+   "need": "Waiting on his price for 2:30 + the first 15s (hook + pipes). Then fund the Upwork milestone (44588835).",
+   "status": "Brief SENT 10/22 in Slack DM: full beat-by-beat script, Drive ref (Aurivita 2:34 Pixar ad), tablet refs, 3 rules. Script marketing/scripts/directmax-brain-speaking-aurivita-pixar-rework-2026-10-22.md",
+   "line": "Price + first 15s"
   },
   {
    "id": "cattory-batch2",
