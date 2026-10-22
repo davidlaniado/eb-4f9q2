@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T15:50:23-04:00",
+ "updated": "2026-10-22T16:20-04:00",
  "updated_by": "manual (session)",
  "rules": {
   "default_due_days": 5,
@@ -321,10 +321,10 @@
    "started": "2026-10-21",
    "due": null,
    "ball": "you",
-   "follow_up": "2026-10-22",
-   "need": "Send her the 5 new video briefs (you said \"by tomorrow\" on 10/21). Tell finance to pay the $220 invoice (you said 10/22).",
-   "status": "Her 5 SAL H3 cuts are approved and in hand. You asked her 10/22 1:52pm to move to Slack, no answer yet (Telegram quiet since).",
-   "line": "Send her 5 briefs + pay $220 invoice"
+   "follow_up": "2026-10-23",
+   "need": "Send her the 5 new video briefs (you said \"by tomorrow\" on 10/21).",
+   "status": "$220 invoice: you asked Evan on DFO Slack 10/22 ~4:30pm, waiting on him. Her 5 SAL H3 cuts launched 10/22.",
+   "line": "Send her 5 new briefs"
   },
   {
    "id": "ryz-sal-h3-launch",
@@ -333,11 +333,11 @@
    "title": "SAL H3 x5 AI women: launch",
    "started": "2026-10-15",
    "due": null,
-   "ball": "you",
-   "follow_up": "2026-10-21",
-   "need": "Launch the 5 approved cuts (you 10/20: \"I just need to launch her videos\"). Say the word and the robot builds it.",
-   "status": "Cuts in hand since 10/15-10/19. One-room one-routine rule applied.",
-   "line": "Launch her 5 cuts"
+   "ball": "live",
+   "follow_up": null,
+   "need": "",
+   "status": "LIVE 10/22 ~4:15pm, own camp <code>120252051206180675</code>, 5 ad sets x $150/day ($750). V1/V3/V4 approved, V2 car + V5 señora in review. Watchdog pushed.",
+   "line": "5 SAL H3 cuts, live 10/22"
   },
   {
    "id": "ryz-dmsp-walking",
