@@ -4,10 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121517" media="(prefers-color-scheme: dark)">
 <title>Editor Board</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one phone-width column; "your move" first, then one card per editor with job rows */
+/* One phone-width column. Order: stats, YOUR MOVE (most late first), filters, one card per editor. */
 :root{
   --bg:#f3f4f1; --card:#ffffff; --fg:#161a1d; --muted:#5f6871; --line:#dde1dc;
   --accent:#0f4c5c; --accent-soft:#dcecef;
@@ -15,6 +19,8 @@
   --them:#8a5a00; --them-soft:#fdf0d2;
   --live:#1d6b3a; --live-soft:#dcefdf;
   --off:#6b7280; --off-soft:#e8eaed;
+  --late:#b3261e; --late-soft:#fbe4e1; --late-ink:#fff;
+  --soon:#8a5a00; --soon-soft:#fdf0d2;
   --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
@@ -24,168 +30,230 @@
   --you:#ff8a80; --you-soft:#4a1c19;
   --them:#f0c060; --them-soft:#3f2f0c;
   --live:#7fd49a; --live-soft:#153821;
-  --off:#a0a7ae; --off-soft:#2a2f34; color-scheme:dark}}
+  --off:#a0a7ae; --off-soft:#2a2f34;
+  --late:#ff6b60; --late-soft:#4a1c19; --late-ink:#1b0a09;
+  --soon:#f0c060; --soon-soft:#3f2f0c; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121517; --card:#1b1f23; --fg:#eceef0; --muted:#9aa3ab; --line:#2b3136;
   --accent:#7fc4d2; --accent-soft:#13343c;
   --you:#ff8a80; --you-soft:#4a1c19;
   --them:#f0c060; --them-soft:#3f2f0c;
   --live:#7fd49a; --live-soft:#153821;
-  --off:#a0a7ae; --off-soft:#2a2f34; color-scheme:dark}
+  --off:#a0a7ae; --off-soft:#2a2f34;
+  --late:#ff6b60; --late-soft:#4a1c19; --late-ink:#1b0a09;
+  --soon:#f0c060; --soon-soft:#3f2f0c; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.45;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-top:max(20px,env(safe-area-inset-top,0px));padding-bottom:48px}
+a{color:var(--accent)}
 .wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
-header h1{font-size:24px;margin:0;letter-spacing:-.01em;text-wrap:balance}
-header p{margin:4px 0 0;color:var(--muted);font-size:13px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+header h1{font-size:24px;margin:0;letter-spacing:-.01em}
+.stamp{font:inherit;font-size:12.5px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:999px;padding:5px 10px;cursor:pointer}
+.stamp.stale{border-color:var(--soon);color:var(--soon)}
+.stamp.old{border-color:var(--late);color:var(--late)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center}
 .stat b{display:block;font-size:22px;font-variant-numeric:tabular-nums;line-height:1.1}
 .stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.stat.you b{color:var(--you)} .stat.them b{color:var(--them)} .stat.live b{color:var(--live)}
-h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 8px;font-weight:600}
-.owe{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--you);border-radius:10px;padding:4px 14px}
-.owe ol{margin:0;padding:0;list-style:none}
-.owe li{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line);align-items:baseline}
-.owe li:first-child{border-top:0}
-.owe .who{font-weight:600;min-width:84px;flex:0 0 auto}
-.owe .what{min-width:0}
+.stat.you b{color:var(--you)} .stat.late b{color:var(--late)} .stat.them b{color:var(--them)} .stat.live b{color:var(--live)}
+.stat.late{border-color:var(--late)}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 8px;font-weight:600;display:flex;justify-content:space-between;align-items:baseline}
+h2 small{font-weight:400;letter-spacing:0;text-transform:none}
+.owe{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--you);border-radius:10px;padding:2px 14px}
+.owe .row{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;padding:10px 0;border-top:1px solid var(--line);color:inherit;align-items:baseline;cursor:pointer}
+.owe .row:first-child{border-top:0}
+.owe .badge{grid-row:1 / span 2;align-self:start;margin-top:2px}
+.owe .who{font-weight:700;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;min-width:0}
+.owe .who .t{font-weight:500;color:var(--muted)}
+.owe .need{color:var(--fg);font-size:14px;min-width:0;overflow-wrap:anywhere}
+.owe .empty{padding:12px 0;color:var(--muted)}
+.badge{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.badge.late{background:var(--late);color:var(--late-ink)}
+.badge.soon{background:var(--soon-soft);color:var(--soon);border:1px solid var(--soon)}
+.badge.ok{background:var(--off-soft);color:var(--muted)}
 .filters{display:flex;gap:6px;flex-wrap:wrap}
 .filters button{font:inherit;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
 .filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .filters button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.filters.brands button{font-size:12px;padding:4px 10px}
 .cards{display:flex;flex-direction:column;gap:12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;scroll-margin-top:12px}
+.card.has-late{border-color:var(--late)}
 .card .top{display:flex;justify-content:space-between;gap:10px;padding:12px 14px 10px;align-items:flex-start}
-.card .name{font-weight:700;font-size:17px;line-height:1.2}
-.card .meta{font-size:12.5px;color:var(--muted);margin-top:2px}
-.card .rate{font-family:var(--mono);font-size:12.5px;color:var(--fg);background:var(--off-soft);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:0 0 auto}
-.job{border-top:1px solid var(--line);padding:10px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 10px}
-.job .title{font-weight:600;min-width:0}
-.job .status{grid-column:1 / -1;color:var(--muted);font-size:13.5px;min-width:0}
+.card .name{font-weight:700;font-size:17px;line-height:1.2;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.card .name .rating{font-size:12px;font-weight:600;color:var(--muted);font-family:var(--mono)}
+.card .meta{font-size:12.5px;color:var(--muted);margin-top:3px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tag{font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border-radius:5px;background:var(--off-soft);color:var(--muted)}
+.tag.manual{background:var(--soon-soft);color:var(--soon)}
+.tag.hf{background:var(--accent-soft);color:var(--accent)}
+.card .rate{font-family:var(--mono);font-size:12px;color:var(--fg);background:var(--off-soft);padding:3px 8px;border-radius:6px;white-space:nowrap;flex:0 0 auto;max-width:46%;text-align:right;white-space:normal}
+.job{border-top:1px solid var(--line);padding:10px 14px;display:flex;flex-direction:column;gap:5px}
+.job.late{box-shadow:inset 4px 0 0 var(--late)}
+.job.soon{box-shadow:inset 4px 0 0 var(--soon)}
+.job .line1{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.job .title{font-weight:600;min-width:0;overflow-wrap:anywhere}
+.job .line2{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.job .day{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.job .need{font-size:14px;color:var(--fg);background:var(--you-soft);border-radius:8px;padding:7px 10px;overflow-wrap:anywhere}
+.job .need::before{content:"You: ";font-weight:700;color:var(--you)}
+.job .status{color:var(--muted);font-size:13.5px;min-width:0;overflow-wrap:anywhere}
 .job .status b{color:var(--fg);font-weight:600}
-.job .status code{font-family:var(--mono);font-size:12px;background:var(--off-soft);padding:1px 5px;border-radius:4px;word-break:break-all}
-.pill{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap;align-self:start}
+.job .status code,.job .need code{font-family:var(--mono);font-size:12px;background:var(--off-soft);padding:1px 5px;border-radius:4px;word-break:break-all}
+.pill{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap}
 .pill.you{background:var(--you-soft);color:var(--you)}
 .pill.them{background:var(--them-soft);color:var(--them)}
 .pill.live{background:var(--live-soft);color:var(--live)}
 .pill.off{background:var(--off-soft);color:var(--off)}
+.brand{font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
 .foot{color:var(--muted);font-size:12.5px}
 .foot p{margin:4px 0}
-@media (max-width:420px){.stats{grid-template-columns:repeat(2,1fr)} .owe .who{min-width:72px}}
-@media (prefers-reduced-motion:no-preference){.card{transition:opacity .15s}}
+.err{background:var(--you-soft);color:var(--you);padding:12px 14px;border-radius:10px}
+@media (max-width:420px){.stats{grid-template-columns:repeat(4,1fr)} .stat b{font-size:20px} .stat span{font-size:10px}}
 </style>
 </head>
 <body>
-
 <div class="wrap">
   <header>
-    <h1>Editor Board</h1>
-    <p>Every video editor, what they're making, whose move it is. Updated Oct 18 from the editor tracker + Slack.</p>
+    <div><h1>Editor Board</h1></div>
+    <button class="stamp" id="stamp" title="Tap to reload">loading…</button>
   </header>
 
   <div class="stats" id="stats"></div>
 
   <section>
-    <h2>Your move</h2>
-    <div class="owe"><ol id="owe"></ol></div>
+    <h2>Your move <small id="owe-sub"></small></h2>
+    <div class="owe" id="owe"></div>
   </section>
 
   <section>
-    <h2>Editors</h2>
-    <div class="filters" id="filters" role="group" aria-label="Filter by whose move"></div>
-    <div class="cards" id="cards" style="margin-top:10px"></div>
+    <div class="filters" id="ballf" role="group" aria-label="Whose move"></div>
+    <div class="filters brands" id="brandf" role="group" aria-label="Brand" style="margin-top:6px"></div>
   </section>
 
-  <section class="foot">
-    <h2>Pipeline</h2>
-    <p><b>Ecom University editors</b> (Keeps ED Ad Bounty crowd): shortlist + draft DM ready in business/editors/ecom-university/. Nothing sent. You pick the % and who goes first.</p>
-    <p><b>Higgsfield login holders:</b> Max, Yatharth, Jawad, Ryzelle(?). Not Mujeeb, Mahesh, Khizar.</p>
-  </section>
+  <div class="cards" id="cards"></div>
+
+  <div class="foot">
+    <p><b>Red</b> = late. <b>Amber</b> = due today or tomorrow. Day counter = days since the brief or delivery.</p>
+    <p><b>Auto</b> editors update from Slack on the robot's schedule. <b>Manual</b> ones update when David and the robot are in session.</p>
+    <p>Data: <code>data/jobs.json</code> in the eb-4f9q2 repo.</p>
+  </div>
 </div>
 
 <script>
-const BALL = { you:'Your move', them:'On them', live:'Live, watchdog', off:'Parked' };
+const BALL = {you:'Your move', them:'Their move', live:'Live', off:'Paused'};
+const BALL_ORDER = ['you','them','live','off'];
+const MS = 86400000;
+function pd(s){ if(!s) return null; const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); }
+const today = new Date(); today.setHours(0,0,0,0);
+const dd = (a,b)=>Math.round((a-b)/MS);
+const fmtD = d=>`${d.getMonth()+1}/${d.getDate()}`;
+const esc = s=>String(s??'').replace(/&(?!(amp|lt|gt|quot|#\d+);)/g,'&amp;');
 
-const EDITORS = [
-  { name:'Black Cactus', sub:'Bashar + Theo · DFO Slack #onpoint-blackcactus', rate:'retainer', jobs:[
-    { t:'Nuestra $50 trap, 5 formats', ball:'them', s:'<b>4 of 5 delivered + live 10/15</b> (TED talk, street interview, Pixar singing V1, comment reply), camp <code>120251918563870675</code>, 4 ad sets × $250. Still owed: <b>song story</b>.' },
-    { t:'Pixar singing V2 lyrics', ball:'you', s:'4 lines changed (name GLP-1, say the brand, "never goes up"). Draft written 10/15, <b>not sent</b>.' },
-    { t:'ED drama concepts (cheating, vibrator fear)', ball:'them', s:'3 to 5 unique, brand-agnostic, DirectMeds end card. Agreed 10/13, <b>no ETA given</b>.' },
-    { t:'Two Wires format breakout', ball:'them', s:'Asked 10/8. <b>Nothing delivered.</b> Mujeeb is on the same angle in other formats.' },
-    { t:'"I owe you stuff" (10/13)', ball:'you', s:'You told Bashar you\'d send something that day. <b>Unknown what.</b>' },
-  ]},
-  { name:'Mujeeb', sub:'imujeebahmed · Slack Connect #mujeeb-david + Upwork', rate:'$500 flat / 3', jobs:[
-    { t:'Two Wires × 3 formats (street, Pixar singing, his pick)', ball:'you', s:'<b>2 of 3 on Frame.io since 10/16</b>, you dropped a screenshot 10/17. Third video "by tomorrow" (10/19). He asked for <b>feedback on the first two</b> and whether the sample video counts in this batch\'s pay.' },
-  ]},
-  { name:'Yatharth', sub:'India · DFO Slack DM (ignore his Upwork msgs)', rate:'$1,000 / 5 vids', jobs:[
-    { t:'5 videos ~1 min, 3 hooks each, DirectMax', ball:'you', s:'One angle for all 5 (blue pill does half the job). Format 1 = Bedroom POV. Script docx is in his Drive folder, <b>short Slack note staged 10/15, you hit send</b>. Ask = one hook cut first.' },
-    { t:'Sample 1 (Shelf + Two Wires)', ball:'live', s:'Rejected twice on JSM-148. NoViagra blur cut <b>live on Nitido since 10/14</b>, <code>120261747096770586</code>, $250/day.' },
-  ]},
-  { name:'Max Goodman', sub:'DFO staff · DFO Slack DM', rate:'DFO staff', jobs:[
-    { t:'Pixar Song (AI singing cheating story)', ball:'live', s:'<b>Live 10/21</b>, own camp <code>120258613919950212</code>, 1 ad set × $100, Marcy page. Draft 720p 118s. Max cutting 2×90s + 2×120s finals. Tell him it is live, stats ~10/25.' },
-    { t:'Flirting/Worrying (6) + Half-a-Pill (5)', ball:'live', s:'<b>Live 10/16</b>, ABO <code>120258478314670212</code>, 11 ad sets × $50, Marcy page. Day-4 report staged in his DM 10/20, you said leave it.' },
-  ]},
-  { name:'Ryzelle', sub:'Telegram @anne16M', rate:'~$225 / wk', jobs:[
-    { t:'Nuestra SAL H3 × 5 AI women', ball:'them', s:'Cut 2 received 10/15. One-room, one-routine rule sent 10/16, she acknowledged. <b>Waiting on Marisol v3</b>, then she runs the other 4 without review.' },
-    { t:'DMSP walking-woman remake', ball:'off', s:'Built paused on Nuestra <code>120251880414120675</code>, $250/day. Your call to flip.' },
-  ]},
-  { name:'Jawad', sub:'mjawadedits, "Muhammed" · OnPoint Slack DM + Upwork', rate:'$400 / 5 concepts', jobs:[
-    { t:'Syra Rx tesa, 4 videos (C1 GLP-1 Belly + 3 TM clones)', ball:'them', s:'Milestone 2 funded 10/20 ($400). <b>Video 1 hook 1 delivered 10/21</b>: 7s raw clip, one static shot, no text, no captions, no SFX = single hook, not the double hook. <b>Feedback sent 10/22</b>: fix the hook layer, send the full 58s cut. 5th concept still open.' },
-    { t:'Sample 1 (MUH)', ball:'live', s:'$100 paid. Live since 10/13, <code>120258396274870212</code>.' },
-  ]},
-  { name:'Mahesh', sub:'Upwork · rate $100/vid', rate:'$50 paid', jobs:[
-    { t:'Shelf of Shame remake', ball:'you', s:'Launched 10/13 as MAH <code>120258396307030212</code>. As of 10/14: $328 spent, 1 sale. <b>No reply to him since.</b> Tell him it ran, decide next job or not.' },
-  ]},
-  { name:'Khizar', sub:'Upwork room', rate:'$125 (expired)', jobs:[
-    { t:'Shelf of Shame test', ball:'you', s:'Offer expired, <b>re-offer needed</b>. Higgsfield login sent 10/14.' },
-  ]},
-  { name:'Cattory (Kari)', sub:'real UGC creators, not an editor · WhatsApp', rate:'free re-edits', jobs:[
-    { t:'Nuestra batch 2 re-edits + Salome hooks', ball:'live', s:'124 files delivered 10/15. 4 cuts <b>live</b>, camp <code>120251920803930675</code>. New $50-trap videos coming → <b>own campaign</b>, never inside the BC one.' },
-  ]},
-];
-
-const OWE = [
-  ['Mujeeb','Feedback on videos 1 + 2 on Frame.io. Answer the pay question.'],
-  ['Yatharth','Send the staged Slack note with the Format 1 script link.'],
-  ['Mahesh','Tell him it ran. Next job or not.'],
-  ['Khizar','New $125 offer on Upwork.'],
-  ['Black Cactus','Pixar V2 lyrics draft. Plus the "stuff I owe" from 10/13.'],
-];
-
-const stats = document.getElementById('stats');
-const allJobs = EDITORS.flatMap(e=>e.jobs);
-const n = k => allJobs.filter(j=>j.ball===k).length;
-stats.innerHTML = `
-  <div class="stat"><b>${EDITORS.length}</b><span>editors</span></div>
-  <div class="stat you"><b>${n('you')}</b><span>your move</span></div>
-  <div class="stat them"><b>${n('them')}</b><span>on them</span></div>
-  <div class="stat live"><b>${n('live')}</b><span>live tests</span></div>`;
-
-document.getElementById('owe').innerHTML = OWE.map(([w,t])=>`<li><span class="who">${w}</span><span class="what">${t}</span></li>`).join('');
-
-const filters = document.getElementById('filters');
-const cards = document.getElementById('cards');
-let current = 'all';
-try{ current = localStorage.getItem('eb-filter') || 'all'; }catch(e){}
-const FILTERS = [['all','All'],['you','Your move'],['them','On them'],['live','Live']];
-function render(){
-  filters.innerHTML = FILTERS.map(([k,l])=>`<button type="button" id="f-${k}" data-k="${k}" aria-pressed="${current===k}">${l}</button>`).join('');
-  cards.innerHTML = EDITORS.map(e=>{
-    const jobs = e.jobs.filter(j=>current==='all'||j.ball===current);
-    if(!jobs.length) return '';
-    return `<article class="card">
-      <div class="top"><div><div class="name">${e.name}</div><div class="meta">${e.sub}</div></div><div class="rate">${e.rate}</div></div>
-      ${jobs.map(j=>`<div class="job"><div class="title">${j.t}</div><span class="pill ${j.ball}">${BALL[j.ball]}</span><div class="status">${j.s}</div></div>`).join('')}
-    </article>`;
-  }).join('') || '<p class="foot">Nothing here.</p>';
+function dueInfo(j){
+  const ref = j.ball==='you' ? j.follow_up : (j.ball==='them' ? j.due : null);
+  if(!ref) return {cls:'', label:'', n:null};
+  const n = dd(pd(ref), today);
+  if(n<0)  return {cls:'late', label:`${-n} day${n===-1?'':'s'} late`, n};
+  if(n===0) return {cls:'soon', label:'due today', n};
+  if(n===1) return {cls:'soon', label:'due tomorrow', n};
+  return {cls:'ok', label:`due ${fmtD(pd(ref))}`, n};
 }
-filters.addEventListener('click',ev=>{
-  const b = ev.target.closest('button'); if(!b) return;
-  current = b.dataset.k; try{ localStorage.setItem('eb-filter',current); }catch(e){}
-  render();
-});
-render();
+function dayN(j){ if(!j.started) return ''; return `day ${dd(today, pd(j.started))+1}`; }
+// urgency: late you > late them > soon you > soon them > you > them > live > off
+function urg(j){
+  const d = dueInfo(j);
+  if(d.cls==='late') return 100 + (-d.n) + (j.ball==='you'?50:0);
+  if(d.cls==='soon') return 60 + (j.ball==='you'?10:0) - d.n;
+  return {you:40, them:30, live:20, off:10}[j.ball] || 0;
+}
+
+let DATA=null, ball='all', brand='all';
+
+function stampText(){
+  const u = new Date(DATA.updated);
+  const mins = Math.round((Date.now()-u)/60000);
+  let ago = mins<60 ? `${mins}m ago` : mins<2880 ? `${Math.round(mins/60)}h ago` : `${Math.round(mins/1440)}d ago`;
+  const t = u.toLocaleString('en-US',{month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit'});
+  const el = document.getElementById('stamp');
+  el.textContent = `Updated ${t} · ${ago}`;
+  el.className = 'stamp' + (mins>1440 ? ' old' : mins>240 ? ' stale' : '');
+}
+
+function render(){
+  const jobs = DATA.jobs, eds = DATA.editors;
+  const byEd = Object.fromEntries(eds.map(e=>[e.id,e]));
+  const infos = Object.fromEntries(jobs.map(j=>[j.id, dueInfo(j)]));
+
+  // stats
+  const n = k=>jobs.filter(j=>j.ball===k).length;
+  const late = jobs.filter(j=>infos[j.id].cls==='late').length;
+  document.getElementById('stats').innerHTML = `
+    <div class="stat you"><b>${n('you')}</b><span>your move</span></div>
+    <div class="stat late"><b>${late}</b><span>late</span></div>
+    <div class="stat them"><b>${n('them')}</b><span>their move</span></div>
+    <div class="stat live"><b>${n('live')}</b><span>live</span></div>`;
+
+  // your move list
+  const owe = jobs.filter(j=>j.ball==='you').sort((a,b)=>urg(b)-urg(a));
+  const oweEl = document.getElementById('owe');
+  document.getElementById('owe-sub').textContent = owe.length ? `${owe.length} open` : '';
+  oweEl.innerHTML = owe.length ? owe.map(j=>{
+    const d = infos[j.id];
+    return `<div class="row" data-go="ed-${j.editor}" role="link" tabindex="0">
+      <span class="badge ${d.cls||'ok'}">${d.label||'open'}</span>
+      <span class="who">${esc(byEd[j.editor]?.name||j.editor)} <span class="brand">${esc(j.brand)}</span> <span class="t">${esc(j.title)}</span></span>
+      <span class="need">${j.need||''}</span></div>`;
+  }).join('') : `<div class="empty">Nothing on you. Go make ads.</div>`;
+
+  // filters
+  const brands = [...new Set(jobs.map(j=>j.brand))].sort();
+  document.getElementById('ballf').innerHTML = ['all',...BALL_ORDER].map(k=>
+    `<button aria-pressed="${ball===k}" data-ball="${k}">${k==='all'?'All':BALL[k]}${k==='all'?'':' '+n(k)}</button>`).join('');
+  document.getElementById('brandf').innerHTML = ['all',...brands].map(b=>
+    `<button aria-pressed="${brand===b}" data-brand="${b}">${b==='all'?'All brands':esc(b)}</button>`).join('');
+
+  // editor cards, most urgent first
+  const edScore = e=>Math.max(0,...jobs.filter(j=>j.editor===e.id).map(urg));
+  const cards = [...eds].sort((a,b)=>edScore(b)-edScore(a)).map(e=>{
+    const js = jobs.filter(j=>j.editor===e.id && (ball==='all'||j.ball===ball) && (brand==='all'||j.brand===brand)).sort((a,b)=>urg(b)-urg(a));
+    if(!js.length) return '';
+    const hasLate = js.some(j=>infos[j.id].cls==='late');
+    const hf = e.higgsfield===true ? `<span class="tag hf">Higgsfield</span>` : (typeof e.higgsfield==='string' ? `<span class="tag hf">Higgsfield: ${esc(e.higgsfield)}</span>` : '');
+    const src = e.source==='auto' ? `<span class="tag">auto</span>` : `<span class="tag manual">manual</span>`;
+    return `<section class="card${hasLate?' has-late':''}" id="ed-${e.id}">
+      <div class="top">
+        <div style="min-width:0">
+          <div class="name">${esc(e.name)} ${e.rating&&e.rating!=='n/a'?`<span class="rating">${esc(e.rating)}${e.rating_by==='David'?'':' ?'}</span>`:''}</div>
+          <div class="meta"><span>${esc(e.where)}</span>${src}${hf}</div>
+        </div>
+        <div class="rate">${esc(e.rate)}</div>
+      </div>
+      ${js.map(j=>{
+        const d = infos[j.id];
+        return `<div class="job ${d.cls}">
+          <div class="line1"><span class="brand">${esc(j.brand)}</span><span class="title">${esc(j.title)}</span></div>
+          <div class="line2"><span class="pill ${j.ball}">${BALL[j.ball]}</span>${d.label?`<span class="badge ${d.cls}">${d.label}</span>`:''}${j.started?`<span class="day">${dayN(j)}</span>`:''}${j.due&&j.ball!=='them'?`<span>due ${fmtD(pd(j.due))}</span>`:''}</div>
+          ${j.ball==='you'&&j.need?`<div class="need">${j.need}</div>`:''}
+          ${j.status?`<div class="status">${j.status}</div>`:''}
+        </div>`;
+      }).join('')}
+    </section>`;
+  }).join('');
+  document.getElementById('cards').innerHTML = cards || `<div class="foot">Nothing matches.</div>`;
+}
+
+document.getElementById('ballf').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; ball=b.dataset.ball; render(); });
+document.getElementById('brandf').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; brand=b.dataset.brand; render(); });
+document.getElementById('stamp').addEventListener('click', ()=>location.reload());
+document.getElementById('owe').addEventListener('click', e=>{ if(e.target.closest('a')) return; const r=e.target.closest('.row'); if(!r) return; document.getElementById(r.dataset.go)?.scrollIntoView({behavior:'smooth',block:'start'}); });
+
+fetch('data/jobs.json?t='+Date.now(), {cache:'no-store'})
+  .then(r=>{ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+  .then(d=>{ DATA=d; stampText(); render(); setInterval(stampText, 60000); })
+  .catch(err=>{ document.getElementById('stamp').textContent='data failed'; document.getElementById('cards').innerHTML=`<div class="err">Could not load data/jobs.json (${esc(err.message)}). Pull to refresh.</div>`; });
 </script>
 </body>
 </html>
