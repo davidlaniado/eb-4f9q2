@@ -72,6 +72,7 @@ header h1{font-size:20px;margin:0;letter-spacing:-.01em}
 .grp.you .row .dot{background:var(--you)} .grp.them .row .dot{background:var(--them)} .grp.live .row .dot{background:var(--live)}
 .row.off .dot{background:var(--off)}
 .row .txt{flex:1;min-width:0;font-weight:500;overflow-wrap:anywhere;line-height:1.35}
+.row .br{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-right:5px;white-space:nowrap}
 .grp.you .row .txt{font-weight:600}
 .row .b{flex:0 0 auto;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;white-space:nowrap;margin-top:1px;font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .b.late{background:var(--late);color:var(--late-ink)}
@@ -107,6 +108,8 @@ const today = new Date(); today.setHours(0,0,0,0);
 const dd = (a,b)=>Math.round((a-b)/MS);
 const fmtD = d=>`${d.getMonth()+1}/${d.getDate()}`;
 const esc = s=>String(s??'').replace(/&(?!(amp|lt|gt|quot|#\d+);)/g,'&amp;');
+const BR = {'ED (brand-agnostic)':'ED','Syra Rx tesa':'Syra','DirectMax':'DirectMax','Nuestra':'Nuestra','Zyvo':'Zyvo','DMSP':'DMSP'};
+const br = b=>(!b||b==='—')?'':`<span class="br">${esc(BR[b]||b)}</span>`;
 
 function dueInfo(j){
   const ref = j.ball==='you' ? j.follow_up : (j.ball==='them' ? j.due : null);
@@ -136,7 +139,7 @@ function stampText(){
 function rowHTML(j, info){
   const day = j.started ? `day ${dd(today, pd(j.started))+1}` : '';
   return `<div class="row${j.ball==='off'?' off':''}" data-id="${j.id}">
-    <div class="l"><span class="dot"></span><span class="txt">${esc(j.line||j.title)}</span>${info.label?`<span class="b ${info.cls}">${info.label}</span>`:''}</div>
+    <div class="l"><span class="dot"></span><span class="txt">${br(j.brand)}${esc(j.line||j.title)}</span>${info.label?`<span class="b ${info.cls}">${info.label}</span>`:''}</div>
     <div class="more">${j.ball==='you'&&j.need?`<div class="need">${j.need}</div>`:''}${j.status?`<div>${j.status}</div>`:''}<div class="meta">${esc(j.title)}${day?` · ${day}`:''}${j.due&&j.ball!=='them'?` · due ${fmtD(pd(j.due))}`:''}</div></div>
   </div>`;
 }
