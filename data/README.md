@@ -32,3 +32,7 @@ Edit it, commit, push. Pages redeploys in ~1 min. The page reads it live (no bui
 - Editor asks a question → ball=you, follow_up = +1 day, need = the question.
 - Ad launched → ball=live with the campaign id in status.
 - Never delete a job; set ball=off with a note when it dies.
+
+## Deploy gotcha (seen 10/22)
+GitHub Pages (legacy build) did NOT auto-build after `git push`. After every push run:
+`gh api -X POST repos/davidlaniado/eb-4f9q2/pages/builds` then poll `https://davidlaniado.github.io/eb-4f9q2/data/jobs.json?t=<random>` until the `updated` stamp matches. ~70s.
