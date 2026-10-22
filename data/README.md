@@ -40,3 +40,6 @@ GitHub Pages (legacy build) did NOT auto-build after `git push`. After every pus
 ## READ THREADS (David 10/22: "I replied to it directly, you're not seeing those")
 David answers in Slack THREADS. A channel/DM read without threads shows his questions as unanswered.
 Every sweep: read in `detailed` mode, and for every message with "Thread: N replies" read the thread before deciding the ball.
+
+## `ball: done`
+Closed items keep their row (history) but the page hides them. Use it when a question got answered or a job was launched and nothing is owed either way.

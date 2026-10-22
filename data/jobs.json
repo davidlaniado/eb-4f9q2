@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T14:11:29-04:00",
+ "updated": "2026-10-22T15:08:04-04:00",
  "updated_by": "manual (session)",
  "rules": {
   "default_due_days": 5,
@@ -98,13 +98,13 @@
    "name": "Mahesh",
    "rating": "7/10",
    "rating_by": "proposed",
-   "where": "Upwork, joining OnPoint Slack",
+   "where": "OnPoint Slack DM",
    "rate": "$100 / video ($50 first)",
    "higgsfield": false,
-   "source": "manual",
+   "source": "auto",
    "channel": {
     "ws": "onpoint",
-    "id": null
+    "id": "D0CAYMTA1D1"
    }
   },
   {
@@ -128,37 +128,37 @@
    "id": "bc-nuestra5-review",
    "editor": "bc",
    "brand": "Nuestra",
-   "title": "#5 song story, updated cut (Spanish music): review + launch",
+   "title": "#5 song story: LAUNCH (approved)",
    "started": "2026-10-19",
    "due": null,
    "ball": "you",
-   "follow_up": "2026-10-20",
-   "need": "Review the updated #5 <a href=\"https://f.io/3S2hJOAf\">f.io/3S2hJOAf</a> (your ask 10/17: Spanish music underneath) and launch it or send fixes.",
-   "status": "First cut 10/16, you replied in the thread \"solid, Spanish music underneath?\", updated cut delivered 10/19 10:52am. 4 of 5 live since 10/15, camp <code>120251918563870675</code> ($1,465 / 1 sale as of 10/20)."
+   "follow_up": "2026-10-23",
+   "need": "Launch #5 song story in its own ad set (you told Theo 10/22: runs as is, own ad set, will share results).",
+   "status": "Approved 10/22 2:32pm in thread (\"good overall, she doesn't look like she lost much weight, running as is\"). Updated cut w/ Spanish music = <a href=\"https://f.io/3S2hJOAf\">f.io/3S2hJOAf</a>. The other 4 formats: TED $387/0, street $394/1, Pixar $372/1, comment reply $312/0 = $1,465 / 2 sales, all paused on the kill rule (your read to Theo 10/22 2:37pm)."
   },
   {
    "id": "bc-nuestra-56-review",
    "editor": "bc",
    "brand": "Nuestra",
-   "title": "#6 Pixar & UGC (storyline concept): review",
+   "title": "#6 Pixar & UGC: LAUNCH (approved)",
    "started": "2026-10-19",
    "due": null,
    "ball": "you",
-   "follow_up": "2026-10-20",
-   "need": "Review <a href=\"https://f.io/MjIFqUrQ\">f.io/MjIFqUrQ</a>, then launch or fixes.",
-   "status": "Delivered 10/19 10:52am. The Instagram storyline-then-real-person concept you sent 10/15, Spanish. No reply from you yet (channel or thread)."
+   "follow_up": "2026-10-23",
+   "need": "Launch Nuestra #6 Pixar & UGC <a href=\"https://f.io/MjIFqUrQ\">f.io/MjIFqUrQ</a> (approved 10/22 2:39pm, \"getting them live\").",
+   "status": "Delivered 10/19. Approved in thread 10/22. Spanish storyline-then-real-person concept."
   },
   {
    "id": "bc-dmax-pixar-ugc",
    "editor": "bc",
    "brand": "DirectMax",
-   "title": "Pixar & UGC (storyline concept): review",
+   "title": "Pixar & UGC (storyline concept): LAUNCH (approved)",
    "started": "2026-10-19",
    "due": null,
    "ball": "you",
-   "follow_up": "2026-10-20",
-   "need": "Review <a href=\"https://f.io/Lqfbz34l\">f.io/Lqfbz34l</a>, then launch or fixes.",
-   "status": "Delivered 10/19 10:55am. Same concept as Nuestra #6, English, ED. No reply from you yet (channel or thread)."
+   "follow_up": "2026-10-23",
+   "need": "Launch DirectMax Pixar & UGC <a href=\"https://f.io/Lqfbz34l\">f.io/Lqfbz34l</a> (approved 10/22 2:39pm).",
+   "status": "Delivered 10/19. Approved in thread 10/22 with the two Nuestra cuts."
   },
   {
    "id": "bc-ed-drama",
@@ -166,12 +166,12 @@
    "brand": "ED (brand-agnostic)",
    "title": "ED drama videos (cheating + vibrator fear), 3 to 5",
    "started": "2026-10-13",
-   "due": "2026-10-21",
+   "due": null,
    "ball": "them",
-   "follow_up": "2026-10-21",
+   "follow_up": "2026-10-24",
    "need": "",
-   "status": "You answered in the thread 10/16 1:05pm: \"no more direct meds spanish, this will be for direct meds ed.\" Theo: \"on it.\" No ETA given since. Ask for one.",
-   "due_src": "default"
+   "status": "You 10/22 3:06pm: \"Keep going on the ED drama, that's the job right now. Lmk the ETA.\" Sent Max's Pixar cuts as a tone reference. Waiting on their ETA.",
+   "due_src": ""
   },
   {
    "id": "bc-zyvo",
@@ -179,11 +179,12 @@
    "brand": "Zyvo",
    "title": "Zyvo Health app: 3 unique videos made",
    "started": "2026-10-16",
-   "due": null,
-   "ball": "you",
-   "follow_up": "2026-10-17",
-   "need": "Confirm the target audience + any brief feedback (Theo 10/16, Google Doc brief).",
-   "status": "They made 3 videos and stopped to ask who the audience is."
+   "due": "2026-10-27",
+   "ball": "them",
+   "follow_up": "2026-10-27",
+   "need": "",
+   "status": "You answered 10/22 2:32pm (thread): audience 55+, daily-meds jugglers first, skip the ADHD lane. Ambulance + Almost Forgot fit, Every Hack needs her late 50s. Asked them to send the 3 videos. Their 4 app questions go to Bruce.",
+   "due_src": "default"
   },
   {
    "id": "bc-new-briefs",
@@ -192,10 +193,10 @@
    "title": "New briefs",
    "started": "2026-10-20",
    "due": null,
-   "ball": "you",
-   "follow_up": "2026-10-21",
-   "need": "Send the next briefs. Theo 10/20 5:51pm: \"team is ready and waiting for your instructions.\"",
-   "status": "Team idle on your side."
+   "ball": "done",
+   "follow_up": null,
+   "need": "",
+   "status": "Answered 10/22 3:06pm: the ED drama videos are the job. Closed."
   },
   {
    "id": "bc-two-wires",
@@ -207,8 +208,8 @@
    "due_src": "default",
    "ball": "them",
    "follow_up": "2026-10-13",
-   "need": "",
-   "status": "Asked 10/8. Nothing delivered, not mentioned since. Decide: still want it or drop it."
+   "need": "Write + send the Two Wires (and Shelf of Shame) format-breakout briefs, 4-6 formats each. The 10/8 message only explained the rule.",
+   "status": "Briefs promised 10/8 (\"separate briefs coming\"), never sent. Not a BC delivery."
   },
   {
    "id": "max-pixar-song",
@@ -308,7 +309,7 @@
    "ball": "you",
    "follow_up": "2026-10-22",
    "need": "Send her the 5 new video briefs (you said \"by tomorrow\" on 10/21). Tell finance to pay the $220 invoice (you said 10/22).",
-   "status": "Her 5 SAL H3 cuts are approved and in hand. You asked her 10/22 5:52pm to move to Slack, waiting on her."
+   "status": "Her 5 SAL H3 cuts are approved and in hand. You asked her 10/22 1:52pm to move to Slack, no answer yet (Telegram quiet since)."
   },
   {
    "id": "ryz-sal-h3-launch",
@@ -343,8 +344,8 @@
    "due": null,
    "ball": "you",
    "follow_up": "2026-10-24",
-   "need": "Pick his next job. He still has to join OnPoint Slack (invite re-sent 10/22).",
-   "status": "$50 milestone approved 10/20. Shelf of Shame remake ran as MAH <code>120258396307030212</code>: $345 / 1 sale / 8 checkouts, still active. Pay stays on Upwork."
+   "need": "Pick his next job and brief him in Slack (he joined 10/22 12:47pm). You promised \"this week\".",
+   "status": "$50 milestone approved 10/20. Shelf of Shame remake ran as MAH <code>120258396307030212</code>: $345 / 1 sale / 8 checkouts. In OnPoint Slack now, pay stays on Upwork."
   },
   {
    "id": "cattory-batch2",
@@ -357,6 +358,18 @@
    "follow_up": null,
    "need": "",
    "status": "124 files 10/15. 4 cuts <b>live</b>, camp <code>120251920803930675</code>. New $50-trap videos go in their own campaign."
+  },
+  {
+   "id": "bc-zyvo-app-answers",
+   "editor": "bc",
+   "brand": "Zyvo",
+   "title": "Zyvo app answers (from Bruce) for Theo",
+   "started": "2026-10-22",
+   "due": null,
+   "ball": "you",
+   "follow_up": "2026-10-23",
+   "need": "Get Bruce's answers (what's free, mark-as-taken, trusted-contact alerts, store page + iOS link) and pass them to Theo.",
+   "status": "You told Theo 10/22 you'd get these from Bruce, he owns the app."
   }
  ]
 }

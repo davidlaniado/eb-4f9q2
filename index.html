@@ -189,7 +189,7 @@ function itemHTML(j, info){
 }
 
 function render(){
-  const jobs = DATA.jobs, eds = DATA.editors;
+  const jobs = DATA.jobs.filter(j=>j.ball!=='done'), eds = DATA.editors;
   const infos = Object.fromEntries(jobs.map(j=>[j.id, dueInfo(j)]));
   const n = k=>jobs.filter(j=>j.ball===k).length;
   const late = jobs.filter(j=>infos[j.id].cls==='late').length;
