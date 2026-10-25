@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-22T17:39-04:00",
- "updated_by": "claude",
+ "updated": "2026-10-25T10:25-05:00",
+ "updated_by": "manual (session)",
  "rules": {
   "default_due_days": 5,
   "reply_due_hours": 24
@@ -316,15 +316,15 @@
   {
    "id": "ryz-5-new",
    "editor": "ryz",
-   "brand": "Nuestra",
-   "title": "5 new videos: briefs owed",
+   "brand": "RightWell",
+   "title": "RightWell AI drama: 3 videos",
    "started": "2026-10-21",
    "due": null,
    "ball": "you",
-   "follow_up": "2026-10-23",
-   "need": "Send her the 5 new video briefs (you said \"by tomorrow\" on 10/21).",
-   "status": "$220 invoice: you asked Evan on DFO Slack 10/22 ~4:30pm, waiting on him. Her 5 SAL H3 cuts launched 10/22.",
-   "line": "Send her 5 new briefs"
+   "follow_up": "2026-10-25",
+   "need": "Send Ryzelle the Telegram message (drafted in business/ryzelle/rightwell-revenge-glowup-2026-10-23/message.txt). PDF + refs already on Drive.",
+   "status": "Revenge Glow-Up soap-opera episode, 3 videos same body (house first, then text, office). Brief PDF built 10/25. $220 invoice: asked Evan 10/22.",
+   "line": "Send her the RW drama brief"
   },
   {
    "id": "ryz-sal-h3-launch",
