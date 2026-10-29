@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T10:25-05:00",
+ "updated": "2026-10-29T17:05-04:00",
  "updated_by": "manual (session)",
  "rules": {
   "default_due_days": 5,
@@ -157,11 +157,24 @@
    "title": "Pixar & UGC (Code Red storyline): LIVE 10/22",
    "started": "2026-10-19",
    "due": null,
-   "ball": "live",
-   "follow_up": "2026-10-25",
+   "ball": "off",
+   "follow_up": null,
    "need": "Launched 10/22 ~4:20pm ET. Stats read ~10/25.",
-   "status": "<b>LIVE 10/22 ~4:20pm ET</b> on JSM-148: camp 120258637875780212 `ED | DirectMax | Code Red Pixar Story | BC | ABO | 10.22`, 1 ad set $150/day, Marcy page. Watchdog via account ladder. v4 84s approved 10/22 2:39pm.",
-   "line": "Code Red Pixar story LIVE 10/22"
+   "status": "<b>REJECTED 10/29</b> (H&amp;W) after $467 / 2 sales lifetime. Swapped to a clean placeholder, likely rejected again. Code Red v4 84s is done on JSM-148 unless it clears on the new pixel.",
+   "line": "Code Red Pixar: rejected 10/29"
+  },
+  {
+   "id": "bc-give-me-a-minute",
+   "editor": "bc",
+   "brand": "DirectMax",
+   "title": "46 Give Me a Minute (261s): Ed-dy pixel pilot",
+   "started": "2026-10-29",
+   "due": null,
+   "ball": "live",
+   "follow_up": "2026-11-01",
+   "need": "",
+   "status": "<b>LIVE 10/29 1:10pm</b> camp <code>120258810047700212</code> JSM-148, 1 ad set $150/day, first campaign on the NEW clean pixel (step6, twolanejournal.com). Read = CPM/CPA vs the old-pixel BC camps. 10/30 plan: add Thought I Was Gay + HAP A2 v1 to this camp as own ad sets for a side-by-side pixel read.",
+   "line": "Give Me a Minute live 10/29 on the clean pixel"
   },
   {
    "id": "bc-ed-drama",
@@ -169,13 +182,13 @@
    "brand": "ED (brand-agnostic)",
    "title": "ED drama videos (cheating + vibrator fear), 3 to 5",
    "started": "2026-10-13",
-   "due": null,
-   "ball": "them",
-   "follow_up": "2026-10-24",
+   "due": "2026-10-30",
+   "ball": "you",
+   "follow_up": "2026-10-30",
    "need": "",
-   "status": "You 10/22 3:06pm: \"Keep going on the ED drama, that's the job right now. Lmk the ETA.\" Sent Max's Pixar cuts as a tone reference. Waiting on their ETA.",
+   "status": "Theo sent 2 drama videos 10/25 (Dream Story + Thought I Was Gay). Both <b>LIVE 10/25 9:45pm</b> camp <code>120258703337580212</code>, 2 x $150/day. <b>PAUSED 10/29 12:59pm</b> by you: Gay $557 / 3 sales ($186 CPA), Dream $229 / 0. Theo followed up 10/28 + sent a 3rd drama video <a href=\"https://f.io/M95XZC3h\">f.io/M95XZC3h</a>, nobody has watched it. Your reply is a DRAFT in the Slack composer (10/29). Send it, then review the 3rd video.",
    "due_src": "",
-   "line": "ED drama videos, need an ETA"
+   "line": "Dream + Gay paused 10/29; 3rd drama vid unreviewed, reply in composer"
   },
   {
    "id": "bc-zyvo",
@@ -224,13 +237,13 @@
    "brand": "DirectMax",
    "title": "Pixar Song (cheating story): 2x90s + 2x120s finals",
    "started": "2026-10-16",
-   "due": "2026-10-26",
+   "due": null,
    "ball": "them",
-   "follow_up": "2026-10-25",
+   "follow_up": "2026-11-01",
    "need": "",
-   "status": "v3.2 118s <b>LIVE 10/21 7pm</b>, camp <code>120258613919950212</code>. Day 1: $96 / 2 sales / $48 CPA, hold 22%, best he has posted. v4.2 Brain Control Room 112s launched 10/22 in its own ad set, in review. You 10/22 1:55pm: keep going on the 90s and 120s, do not change song or story. Disney copyright: you said \"Nehhh\" (thread 10/21).",
+   "status": "v3.2 118s ACTIVE $180/day, $1,260 / 5 sales ($252 CPA) lifetime, still a lead not a winner. v4.2 PAUSED ($202 / 0). <b>v1 90s + v2 90s added 10/26</b> as own ad sets $100/day each (only new cuts in his Drive folder), $360 / 0 so far. You told him 10/26: slow the song down, start sad then build; upped his Higgsfield credits. 10/29 he asked if animation beats realistic; CPA answer SENT (Pixar $323 vs realistic $455, top ads tie ~$250). Waiting on his next round.",
    "due_src": "default",
-   "line": "90s + 120s Pixar cuts"
+   "line": "v1/v2 90s live 10/26, next round = slower sad-start song"
   },
   {
    "id": "max-flirting-hap",
@@ -251,13 +264,13 @@
    "brand": "DirectMax",
    "title": "5 videos ~1 min, 3 hooks each (Bedroom POV first)",
    "started": "2026-10-15",
-   "due": "2026-10-24",
+   "due": "2026-10-30",
    "due_src": "promised",
-   "ball": "them",
-   "follow_up": "2026-10-24",
+   "ball": "you",
+   "follow_up": "2026-10-30",
    "need": "",
-   "status": "Higgsfield fight ended 10/22: he runs it on his own account and bills you. Promised the first hook cut \"in a day or two\" (10/21). Ask = one hook cut of Bedroom POV first.",
-   "line": "First hook cut, Bedroom POV"
+   "status": "He pinged 10/27 + 10/28 \"did you check the video?\" You 10/28: on travel, put it on a Frame link. <b>Frame link sent 10/29 6:07am</b> <a href=\"https://f.io/JwxB_lcI\">f.io/JwxB_lcI</a>, unreviewed. Ask was one hook cut of Bedroom POV. Review + leave Frame comments.",
+   "line": "Bedroom POV cut on Frame 10/29, needs your review"
   },
   {
    "id": "yat-sample",
@@ -281,10 +294,10 @@
    "due": "2026-10-30",
    "due_src": "milestone",
    "ball": "them",
-   "follow_up": "2026-10-24",
+   "follow_up": "2026-10-30",
    "need": "",
-   "status": "Milestone 2 funded 10/20 ($400). Video 1 hook 1 came 10/21 as a 7s raw clip, single hook, no captions. <b>Feedback sent 10/22 1:49pm</b>: double hook per the visual plan + the full 58s cut. Waiting on full video 1. 5th concept still open.",
-   "line": "Full video 1 with the double hook"
+   "status": "Video 1 GLP-1 Belly full cut with all 5 hooks delivered 10/25 (burned + clean). You: \"decent enough for a test.\" <b>LIVE 10/25 10pm</b> camp <code>120261937733060586</code> Nitido 15564, 5 ad sets x $100/day, Wellness Review page. He is on Video 2. Milestone 2 ($400) due 10/30, covers this. You want a performance read before more.",
+   "line": "Video 1 x5 hooks live 10/25, he is on Video 2"
   },
   {
    "id": "jawad-sample",
@@ -305,13 +318,13 @@
    "brand": "ED (brand-agnostic)",
    "title": "Round 2: Pixar song \"Part Nobody Fixed\" + street interview \"lamp\"",
    "started": "2026-10-20",
-   "due": "2026-10-25",
+   "due": "2026-10-30",
    "due_src": "default",
-   "ball": "them",
-   "follow_up": "2026-10-25",
+   "ball": "you",
+   "follow_up": "2026-10-30",
    "need": "",
-   "status": "Song + character images + 30s scene images on Frame.io 10/21. You: \"make the video and I'll lyk.\" Building the full Pixar now, no ETA. Street interview after. Round-1 cuts never launched.",
-   "line": "Pixar song, full cut"
+   "status": "<b>Full Pixar song video on Frame.io 10/23</b> (project a3a6ca41). He followed up 10/26 \"just following up.\" 6 days unanswered, nobody has watched it. Review it, then he builds the street interview.",
+   "line": "Full Pixar on Frame since 10/23, 6 days no reply"
   },
   {
    "id": "ryz-5-new",
@@ -319,12 +332,12 @@
    "brand": "RightWell",
    "title": "RightWell AI drama: 3 videos",
    "started": "2026-10-21",
-   "due": null,
+   "due": "2026-10-30",
    "ball": "you",
-   "follow_up": "2026-10-25",
+   "follow_up": "2026-10-30",
    "need": "Send Ryzelle the Telegram message (drafted in business/ryzelle/rightwell-revenge-glowup-2026-10-23/message.txt). PDF + refs already on Drive.",
-   "status": "Revenge Glow-Up soap-opera episode, 3 videos same body (house first, then text, office). Brief PDF built 10/25. $220 invoice: asked Evan 10/22.",
-   "line": "Send her the RW drama brief"
+   "status": "RightWell Revenge Glow-Up brief (PDF + Drive) built 10/25, TG message drafted, <b>never sent</b>. She asked 10/26 \"just want to ask for an update,\" unanswered. You promised 5 more videos \"by tomorrow\" on 10/21. Send the brief (house hook first). $220 invoice: Evan asked 10/22, no confirmation.",
+   "line": "RW drama brief still unsent, she asked for an update 10/26"
   },
   {
    "id": "ryz-sal-h3-launch",
@@ -358,12 +371,12 @@
    "brand": "DirectMax",
    "title": "\"Guy Downstairs Speaking\" Pixar (Aurivita rework)",
    "started": "2026-10-22",
-   "due": null,
-   "ball": "them",
-   "follow_up": "2026-10-24",
+   "due": "2026-10-30",
+   "ball": "you",
+   "follow_up": "2026-10-30",
    "need": "Waiting on his price for 2:30 + the first 15s (hook + pipes). Then fund the Upwork milestone (44588835).",
-   "status": "Brief SENT 10/22 in Slack DM: full beat-by-beat script, Drive ref (Aurivita 2:34 Pixar ad), tablet refs, 3 rules. Script marketing/scripts/directmax-brain-speaking-aurivita-pixar-rework-2026-10-22.md",
-   "line": "Price + first 15s"
+   "status": "He asked for the Higgsfield code 10/26 5am, no reply, so he used his own credits. <b>20s sample on Frame 10/26</b> <a href=\"https://f.io/hKZtSkYp\">f.io/hKZtSkYp</a> (Guy Downstairs Pixar). Pinged \"Hey\" 10/27. No price quoted yet, nothing reviewed. Watch the sample, answer on price + Higgsfield.",
+   "line": "20s sample on Frame 10/26, 3 days no reply, no price yet"
   },
   {
    "id": "cattory-batch2",
@@ -396,14 +409,14 @@
    "editor": "ryz",
    "brand": "—",
    "title": "Move to Slack",
-   "line": "Answer on moving to Slack",
+   "line": "She gave her Slack email 10/23, invite not sent",
    "started": "2026-10-22",
-   "due": "2026-10-23",
+   "due": "2026-10-30",
    "due_src": "default",
-   "ball": "them",
-   "follow_up": "2026-10-23",
+   "ball": "you",
+   "follow_up": "2026-10-30",
    "need": "",
-   "status": "You asked her 10/22 1:52pm on Telegram. No answer yet."
+   "status": "She answered 10/23: yes, has Slack, email ryzelle.anne16@gmail.com. Nobody invited her yet. Invite her to OnPoint Slack, then send the brief there."
   }
  ]
 }
