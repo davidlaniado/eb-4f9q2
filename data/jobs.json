@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29T21:30-04:00",
+ "updated": "2026-10-29T21:40-04:00",
  "updated_by": "manual (session)",
  "rules": {
   "default_due_days": 5,
@@ -318,13 +318,13 @@
    "brand": "ED (brand-agnostic)",
    "title": "Round 2: Pixar song \"Part Nobody Fixed\" + street interview \"lamp\"",
    "started": "2026-10-20",
-   "due": "2026-10-30",
+   "due": null,
    "due_src": "default",
-   "ball": "you",
-   "follow_up": "2026-10-30",
+   "ball": "them",
+   "follow_up": "2026-11-01",
    "need": "",
-   "status": "<b>Full Pixar song video on Frame.io 10/23</b> (project a3a6ca41). He followed up 10/26 \"just following up.\" 6 days unanswered, nobody has watched it. Review it, then he builds the street interview.",
-   "line": "Full Pixar on Frame since 10/23, 6 days no reply"
+   "status": "Full Pixar on Frame.io 10/23 (project a3a6ca41). <b>You answered him 10/29 evening</b> (feedback on Frame/Slack, details not logged). Waiting on his revision, then the street interview. Still no launch from him, 0 sales to date.",
+   "line": "Answered 10/29, waiting on his revision"
   },
   {
    "id": "ryz-5-new",
@@ -332,12 +332,12 @@
    "brand": "RightWell",
    "title": "RightWell AI drama: 3 videos",
    "started": "2026-10-21",
-   "due": "2026-10-30",
+   "due": null,
    "ball": "you",
-   "follow_up": "2026-10-30",
+   "follow_up": "2026-11-03",
    "need": "Send Ryzelle the Telegram message (drafted in business/ryzelle/rightwell-revenge-glowup-2026-10-23/message.txt). PDF + refs already on Drive.",
-   "status": "RightWell Revenge Glow-Up brief (PDF + Drive) built 10/25, TG message drafted, <b>never sent</b>. She asked 10/26 \"just want to ask for an update,\" unanswered. You promised 5 more videos \"by tomorrow\" on 10/21. Send the brief (house hook first). $220 invoice: Evan asked 10/22, no confirmation.",
-   "line": "RW drama brief still unsent, she asked for an update 10/26"
+   "status": "She asked 10/26 for an update. <b>You 10/29: nothing new for her yet.</b> RightWell Revenge Glow-Up brief is built (PDF + Drive, 10/25) but on hold until you say go. $220 invoice: Evan asked 10/22, no confirmation.",
+   "line": "On hold, no new job yet (10/29)"
   },
   {
    "id": "ryz-sal-h3-launch",
