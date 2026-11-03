@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T21:40-04:00",
+  "updated": "2026-11-03T16:55:27-05:00",
   "updated_by": "manual (session)",
   "rules": {
     "default_due_days": 5,
@@ -57,7 +57,7 @@
       "rating_by": "proposed",
       "where": "OnPoint Slack DM",
       "rate": "$400 / 4 videos (milestone 2, due 10/30)",
-      "higgsfield": true,
+      "higgsfield": "David's login via 2FA codes; seat on a different Higgsfield acct + Frame.io access offered 11/3, waiting on his email confirm (jawad07012000@gmail.com)",
       "source": "auto",
       "channel": {
         "ws": "onpoint",
@@ -207,7 +207,7 @@
     {
       "id": "bc-new-briefs",
       "editor": "bc",
-      "brand": "\u2014",
+      "brand": "—",
       "title": "New briefs",
       "started": "2026-10-20",
       "due": null,
@@ -294,10 +294,10 @@
       "due": "2026-10-30",
       "due_src": "milestone",
       "ball": "them",
-      "follow_up": "2026-10-30",
+      "follow_up": "2026-11-04",
       "need": "",
-      "status": "Video 1 GLP-1 Belly full cut with all 5 hooks delivered 10/25 (burned + clean). You: \"decent enough for a test.\" <b>LIVE 10/25 10pm</b> camp <code>120261937733060586</code> Nitido 15564, 5 ad sets x $100/day, Wellness Review page. He is on Video 2. Milestone 2 ($400) due 10/30, covers this. You want a performance read before more.",
-      "line": "Video 1 x5 hooks live 10/25, he is on Video 2"
+      "status": "Video 1 GLP-1 Belly x5 hooks LIVE 10/25 camp <code>120261937733060586</code> Nitido 15564. 11/2 he put the 10 files (5 hooks burned+clean) on Frame <a href=\"https://f.io/Mbab8CJi\">f.io/Mbab8CJi</a> and asked to start Video 2 + move the milestone due date. <b>11/3 4:45pm you: Video 1 approved, more videos coming with instructions, asked if jawad07012000@gmail.com is right for a Higgsfield seat + Frame.io access.</b> Waiting on his reply. Milestone 2 ($400, due 10/30) = 4 videos; only Video 1 delivered, Videos 2-4 (3 TM clones) not started. Don't release or extend without 2-4 committed.",
+      "line": "V1 approved 11/3, Higgsfield seat + Frame.io invite pending his reply; V2-4 still owed"
     },
     {
       "id": "jawad-sample",
@@ -349,7 +349,7 @@
       "ball": "live",
       "follow_up": null,
       "need": "",
-      "status": "LIVE 10/22 ~4:15pm, own camp <code>120252051206180675</code>, 5 ad sets x $150/day ($750). V1/V3/V4 approved, V2 car + V5 se\u00f1ora in review. Watchdog pushed.",
+      "status": "LIVE 10/22 ~4:15pm, own camp <code>120252051206180675</code>, 5 ad sets x $150/day ($750). V1/V3/V4 approved, V2 car + V5 señora in review. Watchdog pushed.",
       "line": "5 SAL H3 cuts, live 10/22"
     },
     {
@@ -407,7 +407,7 @@
     {
       "id": "ryz-slack-move",
       "editor": "ryz",
-      "brand": "\u2014",
+      "brand": "—",
       "title": "Move to Slack",
       "line": "She gave her Slack email 10/23, invite not sent",
       "started": "2026-10-22",
