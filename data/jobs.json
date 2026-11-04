@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03T16:55:27-05:00",
+  "updated": "2026-11-04T14:30:23-05:00",
   "updated_by": "manual (session)",
   "rules": {
     "default_due_days": 5,
@@ -124,6 +124,20 @@
     }
   ],
   "jobs": [
+    {
+      "id": "jawad-healthcraft-3",
+      "editor": "jawad",
+      "brand": "Healthcraft CORE4",
+      "title": "3 ED videos x 5 hooks: Shelf of Shame, After Dinner, Tuesday/Friday",
+      "started": "2026-11-04",
+      "due": "2026-11-11",
+      "due_src": "default",
+      "ball": "them",
+      "follow_up": "2026-11-11",
+      "need": "",
+      "status": "Brief SENT 11/4 12:50am (Drive creative-briefs/Healthcraft - Jawad 11-3, Shelf of Shame ref in inspo/). He makes all 3 + all hooks, delivers everything on Frame at once, you review in one shot. Paid by the $400 Syra milestone released in advance. 15 cuts, burned + clean.",
+      "line": "brief sent 11/4, all 3 x 5 hooks at once, paid via the $400"
+    },
     {
       "id": "bc-nuestra5-review",
       "editor": "bc",
@@ -291,13 +305,13 @@
       "brand": "Syra Rx tesa",
       "title": "4 videos: C1 GLP-1 Belly + 3 TM clones",
       "started": "2026-10-16",
-      "due": "2026-10-30",
+      "due": null,
       "due_src": "milestone",
-      "ball": "them",
-      "follow_up": "2026-11-04",
+      "ball": "off",
+      "follow_up": null,
       "need": "",
-      "status": "Video 1 GLP-1 Belly x5 hooks LIVE 10/25 camp <code>120261937733060586</code> Nitido 15564. 11/2 he put the 10 files (5 hooks burned+clean) on Frame <a href=\"https://f.io/Mbab8CJi\">f.io/Mbab8CJi</a> and asked to start Video 2 + move the milestone due date. <b>11/3 4:45pm you: Video 1 approved, more videos coming with instructions, asked if jawad07012000@gmail.com is right for a Higgsfield seat + Frame.io access.</b> Waiting on his reply. Milestone 2 ($400, due 10/30) = 4 videos; only Video 1 delivered, Videos 2-4 (3 TM clones) not started. Don't release or extend without 2-4 committed.",
-      "line": "V1 approved 11/3, Higgsfield seat + Frame.io invite pending his reply; V2-4 still owed"
+      "status": "Video 1 GLP-1 Belly x5 hooks LIVE 10/25 camp <code>120261937733060586</code>, approved 11/3. <b>Videos 2-4 CANCELLED by you 11/4.</b> $400 milestone released in advance 11/4 (you said you would), covers the Healthcraft batch instead.",
+      "line": "V1 done, V2-4 cancelled 11/4, $400 rolls into Healthcraft"
     },
     {
       "id": "jawad-sample",
