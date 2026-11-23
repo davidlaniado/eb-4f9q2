@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23T17:48:00-05:00",
+  "updated": "2026-11-23T17:52:00-05:00",
   "updated_by": "manual (session)",
   "rules": {
     "default_due_days": 5,
@@ -388,9 +388,9 @@
       "due": null,
       "ball": "you",
       "follow_up": "2026-11-18",
-      "need": "He asked for a Kie top-up 11/14 and 11/16. You said 11/17 \"i will do this tonight\". Not confirmed done. 1 unread Upwork message from him 11/17.",
-      "status": "20s sample on Frame 10/26 <a href=\"https://f.io/hKZtSkYp\">f.io/hKZtSkYp</a>. <b>You gave feedback 10/29 evening</b> (on Frame, details not logged here). Waiting on his next cut + price for the 2:30. Higgsfield: Team seat INVITED 11/2 (Kammaliyo@gmail.com), pending accept. You added feedback 11/12.",
-      "line": "Confirm Kie top-up + read his Upwork msg"
+      "need": "1 unread Upwork message from him (11/17).",
+      "status": "20s sample on Frame 10/26 <a href=\"https://f.io/hKZtSkYp\">f.io/hKZtSkYp</a>. <b>You gave feedback 10/29 evening</b> (on Frame, details not logged here). Waiting on his next cut + price for the 2:30. Higgsfield: Team seat INVITED 11/2 (Kammaliyo@gmail.com), pending accept. You added feedback 11/12. <b>Kie topped up 11/23</b> (account shows 105,024 credits) and you told him in the DM ~5:45pm.",
+      "line": "Read Mahesh's Upwork message"
     },
     {
       "id": "cattory-batch2",
