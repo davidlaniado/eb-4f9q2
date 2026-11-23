@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04T14:30:23-05:00",
+  "updated": "2026-11-23T10:20:00-05:00",
   "updated_by": "manual (session)",
   "rules": {
     "default_due_days": 5,
@@ -132,11 +132,11 @@
       "started": "2026-11-04",
       "due": "2026-11-11",
       "due_src": "default",
-      "ball": "them",
-      "follow_up": "2026-11-11",
-      "need": "",
-      "status": "Brief SENT 11/4 12:50am (Drive creative-briefs/Healthcraft - Jawad 11-3, Shelf of Shame ref in inspo/). He makes all 3 + all hooks, delivers everything on Frame at once, you review in one shot. Paid by the $400 Syra milestone released in advance. 15 cuts, burned + clean.",
-      "line": "brief sent 11/4, all 3 x 5 hooks at once, paid via the $400"
+      "ball": "you",
+      "follow_up": "2026-11-21",
+      "need": "He delivered 11/13 <a href=\"https://f.io/MO7YkKA0\">f.io/MO7YkKA0</a>. You told him 11/20 there are a lot of issues. He asked you to leave the feedback on Frame.",
+      "status": "Brief SENT 11/4 12:50am (Drive creative-briefs/Healthcraft - Jawad 11-3, Shelf of Shame ref in inspo/). He makes all 3 + all hooks, delivers everything on Frame at once, you review in one shot. Paid by the $400 Syra milestone released in advance. 15 cuts, burned + clean. <b>Delivered 11/13.</b> Your 11/20 reply: \"lot of issues, i dont see any of these performing well.\" His ask 11/20: feedback on Frame.",
+      "line": "Leave Frame feedback or cut him"
     },
     {
       "id": "bc-nuestra5-review",
@@ -280,11 +280,11 @@
       "started": "2026-10-15",
       "due": null,
       "due_src": "promised",
-      "ball": "them",
+      "ball": "off",
       "follow_up": "2026-11-01",
       "need": "",
-      "status": "Bedroom POV cut on Frame 10/29 <a href=\"https://f.io/JwxB_lcI\">f.io/JwxB_lcI</a>. <b>You gave feedback 10/29 evening</b> (on Frame). Lifetime: NoViagra $237 / 0 sales, 2 rejections. On the cut list unless this round lands.",
-      "line": "Feedback given 10/29, last chance round"
+      "status": "Bedroom POV cut on Frame 10/29 <a href=\"https://f.io/JwxB_lcI\">f.io/JwxB_lcI</a>. <b>You gave feedback 10/29 evening</b> (on Frame). Lifetime: NoViagra $237 / 0 sales, 2 rejections. On the cut list unless this round lands. He sent a new cut 11/5 <a href=\"https://f.io/Wtp-sFnK\">f.io/Wtp-sFnK</a>. You 11/9: decent, not loving it, asked which format he is best at. <b>No reply to your 11/9, 11/11 and 11/12 messages</b>; you told him 11/12 you assume he is too busy.",
+      "line": "Silent since 11/12, parked"
     },
     {
       "id": "yat-sample",
@@ -334,11 +334,11 @@
       "started": "2026-10-20",
       "due": null,
       "due_src": "default",
-      "ball": "them",
-      "follow_up": "2026-11-01",
-      "need": "",
-      "status": "Full Pixar on Frame.io 10/23 (project a3a6ca41). <b>You answered him 10/29 evening</b> (feedback on Frame/Slack, details not logged). Waiting on his revision, then the street interview. Still no launch from him, 0 sales to date.",
-      "line": "Answered 10/29, waiting on his revision"
+      "ball": "you",
+      "follow_up": "2026-11-16",
+      "need": "Review the finished videos on <a href=\"https://app.frame.io/project/a3a6ca41-61b9-4436-ad3f-3f0b23f8c975/cbc39d27-2bdb-4faa-b210-3e8261c53cbc\">Frame</a> (sent 11/15, he followed up 11/19 + 11/23). Then send the editor brief you promised 11/23: the offer + our best ads.",
+      "status": "Pixar approved 11/4. Street interview swapped for a 4 min AI drama (same contract) 11/4. Preview 11/6, your feedback 11/9. <b>Finished videos on Frame 11/15.</b> Huddle with him 11/23 ~9:20am; he also wants to talk volume + scripting.",
+      "line": "Review his videos + send the brief"
     },
     {
       "id": "ryz-5-new",
@@ -386,11 +386,11 @@
       "title": "\"Guy Downstairs Speaking\" Pixar (Aurivita rework)",
       "started": "2026-10-22",
       "due": null,
-      "ball": "them",
-      "follow_up": "2026-11-01",
-      "need": "Waiting on his price for 2:30 + the first 15s (hook + pipes). Then fund the Upwork milestone (44588835).",
-      "status": "20s sample on Frame 10/26 <a href=\"https://f.io/hKZtSkYp\">f.io/hKZtSkYp</a>. <b>You gave feedback 10/29 evening</b> (on Frame, details not logged here). Waiting on his next cut + price for the 2:30. Higgsfield: Team seat INVITED 11/2 (Kammaliyo@gmail.com), pending accept.",
-      "line": "Feedback given 10/29, waiting on next cut + price"
+      "ball": "you",
+      "follow_up": "2026-11-18",
+      "need": "He asked for a Kie top-up 11/14 and 11/16. You said 11/17 \"i will do this tonight\". Not confirmed done. 1 unread Upwork message from him 11/17.",
+      "status": "20s sample on Frame 10/26 <a href=\"https://f.io/hKZtSkYp\">f.io/hKZtSkYp</a>. <b>You gave feedback 10/29 evening</b> (on Frame, details not logged here). Waiting on his next cut + price for the 2:30. Higgsfield: Team seat INVITED 11/2 (Kammaliyo@gmail.com), pending accept. You added feedback 11/12.",
+      "line": "Confirm Kie top-up + read his Upwork msg"
     },
     {
       "id": "cattory-batch2",
@@ -431,6 +431,98 @@
       "follow_up": "2026-10-30",
       "need": "",
       "status": "She answered 10/23: yes, has Slack, email ryzelle.anne16@gmail.com. Nobody invited her yet. Invite her to OnPoint Slack, then send the brief there."
+    },
+    {
+      "id": "bc-ed-inspo-1120",
+      "editor": "bc",
+      "brand": "ED (brand-agnostic)",
+      "title": "6 new ED videos from the inspo sheet",
+      "started": "2026-11-20",
+      "due": null,
+      "ball": "you",
+      "follow_up": "2026-11-21",
+      "line": "Review 6 new ED videos",
+      "need": "Theo 11/20: 6 new ED videos <a href=\"https://f.io/49SRqt-V\">f.io/49SRqt-V</a>. Earlier inspo sheet batch <a href=\"https://f.io/YPjkAITu\">f.io/YPjkAITu</a>. Pool Boy AI drama (11/13) <a href=\"https://f.io/julyVoL2\">f.io/julyVoL2</a>.",
+      "status": "No reply from you in the channel since his 11/20 message."
+    },
+    {
+      "id": "bc-glp1-10",
+      "editor": "bc",
+      "brand": "DirectMeds GLP-1",
+      "title": "10 DirectMeds GLP-1 videos",
+      "started": "2026-11-13",
+      "due": null,
+      "ball": "you",
+      "follow_up": "2026-11-20",
+      "line": "Answer Theo: other 4 approved?",
+      "need": "Theo 11/19: all 10 at <a href=\"https://f.io/spTWwsBu\">f.io/spTWwsBu</a>. \"4 are approved, and the other 4 have no comments yet. Are those approved too?\" 62 + 63 were updated.",
+      "status": "You gave the go for the Refills versions 11/19 but did not answer the approval question."
+    },
+    {
+      "id": "bc-refills-glp1",
+      "editor": "bc",
+      "brand": "Refills",
+      "title": "Refills $99 versions of the GLP-1 videos",
+      "started": "2026-11-19",
+      "due": "2026-11-24",
+      "due_src": "promised",
+      "ball": "them",
+      "follow_up": "2026-11-25",
+      "line": "Refills $99 GLP-1 versions",
+      "need": "",
+      "status": "You 11/19: do all the GLP-1 videos for Refills, push $99/month. Theo 11/20: started, ready the beginning of next week."
+    },
+    {
+      "id": "bc-payment-plan",
+      "editor": "bc",
+      "brand": "—",
+      "title": "Bashar payment plan",
+      "started": "2026-11-18",
+      "due": null,
+      "ball": "you",
+      "follow_up": "2026-11-20",
+      "line": "Decide Bashar payment plan",
+      "need": "Bashar 11/18: 52 videos made, 30 paid, he owed you 2, so 20 owed. Wants a set schedule. Pay link sent 11/19 (\"no rush\"): <a href=\"https://whish.money/pay/V78RsBqc2\">whish.money</a>. Tracker in his DM.",
+      "status": "You said 11/18 you would review. No decision logged."
+    },
+    {
+      "id": "max-drafts-1119",
+      "editor": "max",
+      "brand": "—",
+      "title": "Drafts uploaded 11/19",
+      "started": "2026-11-19",
+      "due": null,
+      "ball": "you",
+      "follow_up": "2026-11-20",
+      "line": "Comment on his 11/19 drafts",
+      "need": "Drafts folder: <a href=\"https://next.frame.io/project/d26096f4-3726-4b92-bec5-33775705ff1a/a00c3128-9e7e-4e14-9f74-b6141f062e66\">Frame</a>. You said 11/19 \"I'll make comments tonight.\"",
+      "status": "He uploaded 11/19 and said he would redo some models. His was the last Slack message (11/19 7:18pm). Frame comments are not visible from Slack."
+    },
+    {
+      "id": "ryz-next-task",
+      "editor": "ryz",
+      "brand": "—",
+      "title": "Next task",
+      "started": "2026-11-20",
+      "due": null,
+      "ball": "you",
+      "follow_up": "2026-11-23",
+      "line": "Give Ryzelle her next task",
+      "need": "You approved both videos 11/20. She asked for a task to start Monday 11/23.",
+      "status": "Telegram, 11/20."
+    },
+    {
+      "id": "trybe-directmax-review",
+      "editor": "cattory",
+      "brand": "DirectMax",
+      "title": "Trybe creator submissions",
+      "started": "2026-11-19",
+      "due": null,
+      "ball": "you",
+      "follow_up": "2026-11-20",
+      "line": "Review Trybe submission + 4 chats",
+      "need": "Trybe digest 11/19 (unread email): 1 creator submission awaiting review, 4 unread pre-enrollment chats for Direct Max.",
+      "status": "From the Trybe daily digest email, 11/19."
     }
   ]
 }
