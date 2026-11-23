@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23T17:02:00-05:00",
+  "updated": "2026-11-23T17:48:00-05:00",
   "updated_by": "manual (session)",
   "rules": {
     "default_due_days": 5,
@@ -130,13 +130,13 @@
       "brand": "Healthcraft CORE4",
       "title": "3 ED videos x 5 hooks: Shelf of Shame, After Dinner, Tuesday/Friday",
       "started": "2026-11-04",
-      "due": "2026-11-11",
+      "due": null,
       "due_src": "default",
-      "ball": "you",
-      "follow_up": "2026-11-21",
-      "need": "Draft ready (not sent): \"quality is just not high enough for my liking\". Goes in the 11/13 thread under his Frame ask (<a href=\"https://f.io/MO7YkKA0\">f.io/MO7YkKA0</a>). Say \"send\". $0 owed to him: $500 paid on Upwork, no open milestone.",
-      "status": "Brief SENT 11/4 12:50am (Drive creative-briefs/Healthcraft - Jawad 11-3, Shelf of Shame ref in inspo/). He makes all 3 + all hooks, delivers everything on Frame at once, you review in one shot. Paid by the $400 Syra milestone released in advance. 15 cuts, burned + clean. <b>Delivered 11/13.</b> Your 11/20 reply: \"lot of issues, i dont see any of these performing well.\" His ask 11/20: feedback on Frame.",
-      "line": "Send Jawad the quality message"
+      "ball": "them",
+      "follow_up": "2026-11-25",
+      "need": "",
+      "status": "Brief SENT 11/4 12:50am (Drive creative-briefs/Healthcraft - Jawad 11-3, Shelf of Shame ref in inspo/). He makes all 3 + all hooks, delivers everything on Frame at once, you review in one shot. Paid by the $400 Syra milestone released in advance. 15 cuts, burned + clean. <b>Delivered 11/13.</b> Your 11/20 reply: \"lot of issues, i dont see any of these performing well.\" His ask 11/20: feedback on Frame. <b>You sent 11/23 ~5:48pm ET:</b> \"the quality is just not high enough for my liking\". $0 owed to him ($500 paid on Upwork, no open milestone).",
+      "line": "Reply to the quality message"
     },
     {
       "id": "bc-nuestra5-review",
